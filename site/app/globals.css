@@ -1,0 +1,276 @@
+/* ===========================================================================
+   Quesos Festa — design tokens
+   Ported from the Claude Design handoff bundle (project/_ds/.../tokens/*.css)
+   =========================================================================== */
+
+:root {
+  /* --- Brand core -------------------------------------------------------- */
+  --festa-navy-900: #14173f;
+  --festa-navy-800: #1a1e54;
+  --festa-navy-700: #22275e;
+  --festa-navy-600: #2c3372;
+  --festa-navy-500: #3a4290;
+
+  --festa-green-900: #2b4234;
+  --festa-green-800: #38563e;
+  --festa-green-700: #45664b;
+  --festa-green-600: #5a7c60;
+
+  /* --- Product family accents --- */
+  --accent-mascarpone: #b88601;
+  --accent-crema: #1b3b7c;
+  --accent-descremado: #006512;
+  --accent-quark: #a83505;
+  --accent-burrata: #1a1e54;
+
+  /* Italian-heritage flag accents */
+  --italy-green: #008c45;
+  --italy-white: #ffffff;
+  --italy-red: #cd212a;
+
+  /* --- Warm neutral ramp --- */
+  --neutral-0: #ffffff;
+  --neutral-50: #faf8f3;
+  --neutral-100: #f4f1ea;
+  --neutral-150: #ece8df;
+  --neutral-200: #dee8e6;
+  --neutral-300: #cfcbc2;
+  --neutral-400: #a9a49a;
+  --neutral-500: #7d7970;
+  --neutral-600: #5a574f;
+  --neutral-700: #3d3b36;
+  --neutral-800: #262521;
+  --neutral-900: #171612;
+
+  /* --- Functional --- */
+  --success: #006512;
+  --warning: #b88601;
+  --danger: #cd212a;
+  --info: #1b3b7c;
+
+  /* --- Semantic aliases --- */
+  --surface-page: var(--neutral-50);
+  --surface-card: var(--neutral-0);
+  --surface-sunken: var(--neutral-100);
+  --surface-brand: var(--festa-navy-800);
+  --surface-brand-alt: var(--festa-green-800);
+  --surface-inverse: var(--festa-navy-900);
+
+  --text-heading: var(--festa-navy-800);
+  --text-body: var(--neutral-700);
+  --text-muted: var(--neutral-500);
+  --text-on-brand: var(--neutral-0);
+  --text-on-brand-muted: rgba(255, 255, 255, 0.72);
+  --text-link: var(--festa-navy-700);
+
+  --border-subtle: var(--neutral-200);
+  --border-strong: var(--neutral-300);
+  --border-brand: var(--festa-navy-800);
+  --rule-gold: var(--accent-mascarpone);
+
+  --btn-primary-bg: var(--festa-navy-800);
+  --btn-primary-bg-hover: var(--festa-navy-700);
+  --btn-primary-bg-press: var(--festa-navy-900);
+  --btn-primary-fg: var(--neutral-0);
+
+  --focus-ring: var(--accent-mascarpone);
+
+  /* --- Typography --- */
+  --font-display: 'Cinzel', 'Trajan Pro', serif;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-script: 'Parisienne', 'Snell Roundhand', cursive;
+  --font-sans: 'Jost', 'Century Gothic', system-ui, sans-serif;
+
+  /* --- Spacing / radii / shadows / motion --- */
+  --radius-lg: 16px;
+  --shadow-md: 0 8px 24px rgba(20, 23, 63, 0.1);
+  --shadow-lg: 0 18px 48px rgba(20, 23, 63, 0.14);
+  --container-max: 1200px;
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-inout: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--text-body);
+  background: var(--surface-page);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: inherit;
+}
+
+#festa section[id] {
+  scroll-margin-top: 76px;
+}
+
+@keyframes festaFade {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Scroll-reveal system: fade-in + subtle rise, staggered, reduced-motion safe */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(15px);
+  transition:
+    opacity 580ms var(--ease-out),
+    transform 580ms var(--ease-out);
+  will-change: opacity, transform;
+}
+[data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+}
+
+[data-rule] {
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 640ms var(--ease-out);
+}
+[data-rule].is-in {
+  transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal],
+  [data-rule] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
+.nav-link {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-body);
+  text-decoration: none;
+  transition: color 160ms var(--ease-out);
+}
+.nav-link:hover {
+  color: var(--festa-navy-800);
+}
+.nav-link-cta {
+  color: #fff;
+  background: var(--festa-navy-800);
+  padding: 9px 18px;
+  border-radius: 999px;
+  transition: background 160ms var(--ease-out);
+}
+.nav-link-cta:hover {
+  background: var(--festa-navy-700);
+  color: #fff;
+}
+
+.hero-btn-primary {
+  transition: background 160ms var(--ease-out);
+}
+.hero-btn-primary:hover {
+  background: var(--neutral-150) !important;
+}
+.hero-btn-secondary {
+  transition: background 160ms var(--ease-out);
+}
+.hero-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.footer-link {
+  color: rgba(255, 255, 255, 0.78);
+  text-decoration: none;
+  transition: color 160ms var(--ease-out);
+}
+.footer-link:hover {
+  color: #fff;
+}
+
+.prov-tab {
+  padding: 13px 22px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: all 160ms var(--ease-out);
+}
+.prov-tab.is-active {
+  color: var(--festa-navy-800);
+  border-bottom: 2px solid var(--rule-gold);
+}
+
+.catalogo-row {
+  display: flex;
+  gap: 18px;
+  align-items: baseline;
+  padding: 20px 16px;
+  margin: 0 -16px;
+  border-bottom: 1px solid var(--border-subtle);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 260ms var(--ease-out);
+}
+
+.catalogo-dot {
+  flex: none;
+  margin-top: 7px;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  transform: scale(1);
+  transition: transform 260ms var(--ease-out);
+}
+.catalogo-dot.is-active {
+  transform: scale(1.55);
+}
+
+.catalogo-name {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: 23px;
+  line-height: 1.1;
+  margin: 0;
+  color: var(--text-heading);
+  transition: color 260ms var(--ease-out);
+}
+.catalogo-name.is-active {
+  font-weight: 700;
+}
+
+.catalogo-overlay-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 460ms var(--ease-out);
+}
