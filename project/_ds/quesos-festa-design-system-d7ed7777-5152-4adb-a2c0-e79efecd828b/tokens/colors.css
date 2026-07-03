@@ -1,0 +1,88 @@
+/* ===========================================================================
+   Quesos Festa — Color tokens
+   Sampled directly from the brand mood board (logo + packaging + photography).
+   Base palette → semantic aliases. Use the semantic aliases in components.
+   =========================================================================== */
+
+:root {
+  /* --- Brand core -------------------------------------------------------- */
+  /* Festa navy: the wordmark ground. The single most important brand color. */
+  --festa-navy-900: #14173f;
+  --festa-navy-800: #1a1e54;   /* primary — logo center */
+  --festa-navy-700: #22275e;   /* logo edge / raised navy */
+  --festa-navy-600: #2c3372;
+  --festa-navy-500: #3a4290;
+
+  /* Heritage green: the "Familia / receta original" secondary ground. */
+  --festa-green-900: #2b4234;
+  --festa-green-800: #38563e;   /* secondary — deep olive-forest */
+  --festa-green-700: #45664b;
+  --festa-green-600: #5a7c60;
+
+  /* --- Product family accents (used for category coding, badges, chips) --- */
+  --accent-mascarpone: #b88601; /* gold  */
+  --accent-crema:      #1b3b7c; /* blue  */
+  --accent-descremado: #006512; /* green */
+  --accent-quark:      #a83505; /* rust-orange */
+  --accent-burrata:    #1a1e54; /* navy (classic line) */
+
+  /* Italian-heritage flag accents — use sparingly, as a badge/rule detail. */
+  --italy-green: #008c45;
+  --italy-white: #ffffff;
+  --italy-red:   #cd212a;
+
+  /* --- Warm neutral ramp (paper / marble / stone) ------------------------ */
+  --neutral-0:   #ffffff;
+  --neutral-50:  #faf8f3;   /* warm paper */
+  --neutral-100: #f4f1ea;   /* cream card */
+  --neutral-150: #ece8df;
+  --neutral-200: #dee8e6;   /* cool marble off-white */
+  --neutral-300: #cfcbc2;
+  --neutral-400: #a9a49a;
+  --neutral-500: #7d7970;
+  --neutral-600: #5a574f;
+  --neutral-700: #3d3b36;
+  --neutral-800: #262521;
+  --neutral-900: #171612;
+
+  /* --- Functional -------------------------------------------------------- */
+  --success: #006512;
+  --warning: #b88601;
+  --danger:  #cd212a;
+  --info:    #1b3b7c;
+
+  /* ======================================================================
+     SEMANTIC ALIASES — reference these in components
+     ====================================================================== */
+
+  /* Surfaces */
+  --surface-page:      var(--neutral-50);
+  --surface-card:      var(--neutral-0);
+  --surface-sunken:    var(--neutral-100);
+  --surface-brand:     var(--festa-navy-800);
+  --surface-brand-alt: var(--festa-green-800);
+  --surface-inverse:   var(--festa-navy-900);
+
+  /* Text */
+  --text-heading:  var(--festa-navy-800);
+  --text-body:     var(--neutral-700);
+  --text-muted:    var(--neutral-500);
+  --text-on-brand: var(--neutral-0);
+  --text-on-brand-muted: rgba(255, 255, 255, 0.72);
+  --text-link:     var(--festa-navy-700);
+
+  /* Lines & borders */
+  --border-subtle: var(--neutral-200);
+  --border-strong: var(--neutral-300);
+  --border-brand:  var(--festa-navy-800);
+  --rule-gold:     var(--accent-mascarpone);
+
+  /* Interactive (primary = navy) */
+  --btn-primary-bg:       var(--festa-navy-800);
+  --btn-primary-bg-hover: var(--festa-navy-700);
+  --btn-primary-bg-press: var(--festa-navy-900);
+  --btn-primary-fg:       var(--neutral-0);
+
+  /* Focus */
+  --focus-ring: var(--accent-mascarpone);
+}

@@ -1,0 +1,55 @@
+/* ===========================================================================
+   Quesos Festa — Typography tokens
+   Wordmark & display = engraved caps (Cinzel). Body & UI = geometric sans (Jost).
+   Script (Parisienne) is a decorative accent only — never body copy.
+   =========================================================================== */
+
+:root {
+  /* Families */
+  --font-display: 'Cinzel', 'Trajan Pro', serif;          /* wordmark, hero display */
+  --font-serif:   'Cormorant Garamond', Georgia, serif;    /* editorial headings */
+  --font-script:  'Parisienne', 'Snell Roundhand', cursive;/* accent flourish only */
+  --font-sans:    'Jost', 'Century Gothic', system-ui, sans-serif; /* body + UI */
+
+  /* Weights */
+  --fw-light:   300; /* @kind font */
+  --fw-regular: 400; /* @kind font */
+  --fw-medium:  500; /* @kind font */
+  --fw-semi:    600; /* @kind font */
+  --fw-bold:    700; /* @kind font */
+
+  /* Type scale (rem, 16px base) */
+  --fs-2xs: 0.6875rem;  /* 11px — legal / overline */
+  --fs-xs:  0.75rem;    /* 12px */
+  --fs-sm:  0.875rem;   /* 14px */
+  --fs-md:  1rem;       /* 16px — body */
+  --fs-lg:  1.125rem;   /* 18px */
+  --fs-xl:  1.375rem;   /* 22px */
+  --fs-2xl: 1.75rem;    /* 28px */
+  --fs-3xl: 2.25rem;    /* 36px */
+  --fs-4xl: 3rem;       /* 48px */
+  --fs-5xl: 4rem;       /* 64px */
+  --fs-6xl: 5.5rem;     /* 88px — hero wordmark */
+
+  /* Line heights */
+  --lh-tight:   1.08; /* @kind font */
+  --lh-snug:    1.24; /* @kind font */
+  --lh-normal:  1.5; /* @kind font */
+  --lh-relaxed: 1.7; /* @kind font */
+
+  /* Letter spacing — the brand leans on wide tracking for caps overlines */
+  --tracking-wordmark: 0.22em;  /* FESTA lockup */
+  --tracking-overline: 0.32em;  /* "CATÁLOGO DE PRODUCTOS", "CONTACTO" */
+  --tracking-caps:     0.08em;
+  --tracking-normal:   0;
+
+  /* Semantic roles */
+  --text-wordmark:  var(--fw-regular) var(--fs-6xl)/1 var(--font-display);
+  --text-display:   var(--fw-regular) var(--fs-4xl)/var(--lh-tight) var(--font-display);
+  --text-h1:        var(--fw-medium) var(--fs-3xl)/var(--lh-snug) var(--font-serif);
+  --text-h2:        var(--fw-medium) var(--fs-2xl)/var(--lh-snug) var(--font-serif);
+  --text-h3:        var(--fw-semi) var(--fs-xl)/var(--lh-snug) var(--font-sans);
+  --text-body-lg:   var(--fw-regular) var(--fs-lg)/var(--lh-relaxed) var(--font-sans);
+  --text-body-md:   var(--fw-regular) var(--fs-md)/var(--lh-normal) var(--font-sans);
+  --text-body-sm:   var(--fw-regular) var(--fs-sm)/var(--lh-normal) var(--font-sans);
+}

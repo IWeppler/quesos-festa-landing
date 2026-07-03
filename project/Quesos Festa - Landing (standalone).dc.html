@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="ext-resource-dependency" content="assets/photos/foto-2.jpg" data-resource-id="foto-2" />
+<meta name="ext-resource-dependency" content="assets/photos/foto-5.jpg" data-resource-id="foto-5" />
+<meta name="ext-resource-dependency" content="assets/photos/foto-6.jpg" data-resource-id="foto-6" />
+<meta name="ext-resource-dependency" content="assets/photos/foto-8.jpg" data-resource-id="foto-8" />
+<meta name="ext-resource-dependency" content="assets/photos/foto-9.jpg" data-resource-id="foto-9" />
+<meta name="ext-resource-dependency" content="assets/photos/foto-10.jpg" data-resource-id="foto-10" />
+<meta name="ext-resource-dependency" content="assets/photos/foto-11.jpg" data-resource-id="foto-11" />
+<meta name="ext-resource-dependency" content="assets/photos/foto-12.jpg" data-resource-id="foto-12" />
+<meta name="ext-resource-dependency" content="assets/photos/foto-13.jpg" data-resource-id="foto-13" />
+<meta name="ext-resource-dependency" content="assets/photos/foto-14.jpg" data-resource-id="foto-14" />
+<script src="./support.js"></script>
+<template id="__bundler_thumbnail" data-bg-color="#1a1e54">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#1a1e54"/>
+    <text x="600" y="380" text-anchor="middle" font-family="Georgia, serif" font-size="150" letter-spacing="30" fill="#ffffff">FESTA</text>
+    <rect x="560" y="440" width="80" height="4" fill="#b88601"/>
+    <text x="600" y="510" text-anchor="middle" font-family="Georgia, serif" font-size="42" fill="#d9b45a" font-style="italic">Familia Festa</text>
+  </svg>
+</template>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/quesos-festa-design-system-d7ed7777-5152-4adb-a2c0-e79efecd828b/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/quesos-festa-design-system-d7ed7777-5152-4adb-a2c0-e79efecd828b/tokens/colors.css">
+<link rel="stylesheet" href="_ds/quesos-festa-design-system-d7ed7777-5152-4adb-a2c0-e79efecd828b/tokens/typography.css">
+<link rel="stylesheet" href="_ds/quesos-festa-design-system-d7ed7777-5152-4adb-a2c0-e79efecd828b/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/quesos-festa-design-system-d7ed7777-5152-4adb-a2c0-e79efecd828b/tokens/base.css">
+<link rel="stylesheet" href="_ds/quesos-festa-design-system-d7ed7777-5152-4adb-a2c0-e79efecd828b/styles.css">
+<script src="_ds/quesos-festa-design-system-d7ed7777-5152-4adb-a2c0-e79efecd828b/_ds_bundle.js"></script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; }
+  #festa section[id] { scroll-margin-top: 76px; }
+  @keyframes festaFade { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+  [data-reveal] { opacity: 0; transform: translateY(15px); transition: opacity 580ms var(--ease-out), transform 580ms var(--ease-out); will-change: opacity, transform; }
+  [data-reveal].is-in { opacity: 1; transform: none; }
+  [data-rule] { transform: scaleX(0); transform-origin: left center; transition: transform 640ms var(--ease-out); }
+  [data-rule].is-in { transform: scaleX(1); }
+  @media (prefers-reduced-motion: reduce) {
+    [data-reveal], [data-rule] { opacity: 1 !important; transform: none !important; transition: none !important; }
+  }
+</style>
+</helmet>
+<div id="festa" style="font-family: var(--font-sans); color: var(--text-body); background: var(--surface-page); -webkit-font-smoothing: antialiased;">
+
+  <!-- ============ HEADER ============ -->
+  <header style="position: sticky; top: 0; z-index: 50; background: rgba(250,248,243,0.86); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-subtle);">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 32px; height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+      <a href="#top" style="display: inline-flex; align-items: baseline; gap: 10px; text-decoration: none; color: var(--festa-navy-800);">
+        <span style="font-family: var(--font-display); font-size: 26px; letter-spacing: 0.22em; text-transform: uppercase; padding-left: 0.22em; line-height: 1;">Festa</span>
+        <span style="font-family: var(--font-script); font-size: 18px; color: var(--festa-green-800); line-height: 1;">Familia Festa</span>
+      </a>
+      <nav style="display: flex; align-items: center; gap: 30px;">
+        <a href="#historia" style="font-family: var(--font-sans); font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-body); text-decoration: none;" style-hover="color: var(--festa-navy-800);">Historia</a>
+        <a href="#catalogo" style="font-family: var(--font-sans); font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-body); text-decoration: none;" style-hover="color: var(--festa-navy-800);">Catálogo</a>
+        <a href="#donde" style="font-family: var(--font-sans); font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-body); text-decoration: none;" style-hover="color: var(--festa-navy-800);">Dónde encontrarnos</a>
+        <a href="#contacto" style="font-family: var(--font-sans); font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: #fff; text-decoration: none; background: var(--festa-navy-800); padding: 9px 18px; border-radius: 999px;" style-hover="background: var(--festa-navy-700);">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section id="top" style="position: relative; min-height: 640px; display: flex; align-items: center; background: linear-gradient(88deg, rgba(20,23,63,0.95) 0%, rgba(20,23,63,0.86) 34%, rgba(20,23,63,0.5) 66%, rgba(20,23,63,0.1) 100%), url(assets/photos/foto-2.jpg) center/cover no-repeat;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 72px 32px; width: 100%;">
+      <div style="max-width: 620px; color: #fff; animation: festaFade 640ms var(--ease-out) both;">
+        <div style="display: inline-flex; align-items: center; gap: 10px; margin-bottom: 20px;">
+          <span style="display: inline-flex; width: 24px; height: 16px; border-radius: 2px; overflow: hidden;"><span style="flex:1;background:var(--italy-green)"></span><span style="flex:1;background:#fff"></span><span style="flex:1;background:var(--italy-red)"></span></span>
+          <span style="font-family: var(--font-sans); font-weight: 500; font-size: 11px; letter-spacing: 0.32em; text-transform: uppercase; color: rgba(255,255,255,0.78);">Receta original italiana · Desde 1989</span>
+        </div>
+        <div style="font-family: var(--font-script); font-size: 40px; color: rgba(255,255,255,0.9); line-height: 1;">Disfrutá de</div>
+        <h1 style="font-family: var(--font-display); font-weight: 400; font-size: 68px; line-height: 1.04; color: #fff; text-transform: uppercase; letter-spacing: 0.04em; margin: 10px 0 20px;">El arte del queso fresco</h1>
+        <p style="font-family: var(--font-sans); font-size: 19px; line-height: 1.75; color: rgba(255,255,255,0.88); max-width: 520px; margin: 0 0 32px;">Más de 35 años elaborando burrata, stracciatella y mascarpone pieza por pieza, como manda la tradición italiana. Quesos frescos artesanales, de familia, enteramente sin TACC.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 14px; align-items: center;">
+          <a href="#catalogo" style="font-family: var(--font-sans); font-weight: 500; font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--festa-navy-900); background: #fff; padding: 15px 30px; border-radius: 6px; text-decoration: none;" style-hover="background: var(--neutral-150);">Ver catálogo</a>
+          <a href="#historia" style="font-family: var(--font-sans); font-weight: 500; font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase; color: #fff; border: 1px solid rgba(255,255,255,0.55); padding: 15px 30px; border-radius: 6px; text-decoration: none;" style-hover="background: rgba(255,255,255,0.1);">Nuestra historia</a>
+        </div>
+      </div>
+    </div>
+    <div style="position: absolute; right: 32px; bottom: 28px; display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.7); font-family: var(--font-sans); font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase;">Industria Argentina</div>
+  </section>
+
+  <!-- ============ VALORES ============ -->
+  <section style="background: var(--surface-card); border-bottom: 1px solid var(--border-subtle);">
+    <div data-stagger style="max-width: 1200px; margin: 0 auto; padding: 40px 32px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px;">
+      <sc-for list="{{ pillars }}" as="p" hint-placeholder-count="4">
+        <div data-reveal style="display: flex; flex-direction: column; gap: 6px;">
+          <div style="font-family: var(--font-display); font-size: 30px; color: var(--festa-navy-800); line-height: 1;">{{ p.big }}</div>
+          <div style="height: 2px; width: 32px; background: var(--rule-gold); margin: 4px 0;"></div>
+          <div style="font-family: var(--font-sans); font-size: 13.5px; line-height: 1.5; color: var(--text-body);">{{ p.label }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <!-- ============ HISTORIA ============ -->
+  <section id="historia" style="padding: 96px 0; background: var(--surface-page);">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 32px; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 64px; align-items: center;">
+      <div data-reveal>
+        <div style="font-family: var(--font-script); font-size: 30px; color: var(--festa-green-800); line-height: 1;">Nuestra historia</div>
+        <div style="font-family: var(--font-sans); font-weight: 500; font-size: 12px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--text-muted); margin-top: 6px;">Familia Festa · Desde 1989</div>
+        <div data-rule style="height: 2px; width: 48px; background: var(--rule-gold); margin: 18px 0 24px;"></div>
+        <h2 style="font-family: var(--font-serif); font-weight: 500; font-size: 42px; line-height: 1.18; color: var(--text-heading); margin: 0 0 22px;">El oficio de hacer queso, de una familia a tu mesa</h2>
+        <p style="font-family: var(--font-sans); font-size: 17px; line-height: 1.8; color: var(--text-body); margin: 0 0 18px;">Empezamos en 1989 con una convicción sencilla: respetar la receta original italiana y no apurar lo que el tiempo hace mejor. Tres décadas y media después, seguimos hilando la mozzarella y armando cada burrata a mano, pieza por pieza.</p>
+        <p style="font-family: var(--font-sans); font-size: 17px; line-height: 1.8; color: var(--text-body); margin: 0 0 28px;">Elegimos leche seleccionada, procesos cuidados y nada de atajos. Así nacen quesos frescos de textura sedosa y sabor limpio — toda nuestra línea, además, es enteramente <strong style="color: var(--festa-navy-800); font-weight: 600;">sin TACC</strong>, libre de gluten.</p>
+        <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+          <span style="display: inline-flex; flex-direction: column; align-items: center; justify-content: center; width: 96px; height: 96px; border-radius: 999px; border: 2px solid var(--rule-gold); color: var(--festa-navy-800); text-align: center;">
+            <span style="font-family: var(--font-display); font-size: 20px; line-height: 1; letter-spacing: 0.06em;">Sin TACC</span>
+            <span style="height: 1px; width: 34px; background: var(--rule-gold); margin: 5px 0;"></span>
+            <span style="font-family: var(--font-sans); font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted);">Libre de gluten</span>
+          </span>
+          <div style="font-family: var(--font-sans); font-size: 14px; line-height: 1.6; color: var(--text-muted); max-width: 260px;">Reconocidos en el <strong style="color: var(--festa-navy-800); font-weight: 600;">4.º Mundial del Queso</strong>, Brasil 2026.</div>
+        </div>
+      </div>
+      <div data-reveal style="position: relative;">
+        <div style="aspect-ratio: 4/5; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-lg); background: url(assets/photos/foto-1.jpg) center/cover no-repeat;"></div>
+        <div style="position: absolute; left: -22px; bottom: -22px; background: var(--festa-navy-800); color: #fff; padding: 20px 26px; border-radius: 14px; box-shadow: var(--shadow-md);">
+          <div style="font-family: var(--font-display); font-size: 40px; line-height: 1; letter-spacing: 0.02em;">35+</div>
+          <div style="font-family: var(--font-sans); font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,0.78); margin-top: 6px;">Años de oficio</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CATÁLOGO ============ -->
+  <section id="catalogo" style="padding: 92px 0 96px; background: var(--surface-card); border-top: 1px solid var(--border-subtle);">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 32px;">
+      <div data-reveal style="text-align: center; margin-bottom: 20px;">
+        <div style="font-family: var(--font-script); font-size: 30px; color: var(--festa-green-800); line-height: 1;">Presentación de</div>
+        <div style="font-family: var(--font-sans); font-weight: 500; font-size: 12px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--text-muted); margin-top: 6px;">Catálogo de productos</div>
+        <h2 style="font-family: var(--font-serif); font-weight: 500; font-size: 42px; line-height: 1.16; color: var(--text-heading); margin: 12px 0 0;">Quesos frescos artesanales</h2>
+        <div data-rule style="height: 2px; width: 48px; background: var(--rule-gold); margin: 18px auto 0;"></div>
+      </div>
+
+      <!-- sin TACC banner -->
+      <div data-reveal style="display: flex; justify-content: center; margin-bottom: 22px;">
+        <div style="display: inline-flex; align-items: center; gap: 12px; background: var(--surface-sunken); border: 1px solid var(--border-subtle); border-radius: 999px; padding: 9px 20px;">
+          <span style="display: inline-flex; width: 8px; height: 8px; border-radius: 999px; background: var(--success);"></span>
+          <span style="font-family: var(--font-sans); font-size: 12.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-body);">Toda nuestra línea es sin TACC · libre de gluten</span>
+        </div>
+      </div>
+
+      <div data-reveal style="text-align: center; margin: 0 auto 52px; max-width: 620px; font-family: var(--font-sans); font-size: 13.5px; line-height: 1.6; color: var(--text-muted);">Pasá el cursor —o tocá en el celular— sobre cada producto para verlo en detalle.</div>
+
+      <!-- ---- Vista CARTA ---- -->
+      <div style="display: flex; flex-direction: column; gap: 72px;">
+        <sc-for list="{{ cats }}" as="cat" hint-placeholder-count="3">
+          <div style="display: grid; grid-template-columns: 340px 1fr; gap: 48px; align-items: start;">
+            <div style="position: sticky; top: 92px;">
+              <div data-reveal style="position: relative; aspect-ratio: 3/4; border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-md); background: {{ cat.photoBg }};">
+                <sc-if value="{{ cat.photo }}" hint-placeholder-val="{{ false }}">
+                  <img src="{{ cat.photo }}" alt="{{ cat.title }}" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;">
+                </sc-if>
+                <sc-if value="{{ cat.overlayPhoto }}" hint-placeholder-val="{{ false }}">
+                  <img src="{{ cat.overlayPhoto }}" alt="" style="{{ cat.overlayStyle }}">
+                </sc-if>
+              </div>
+              <div style="font-family: var(--font-script); font-size: 24px; color: var(--festa-green-800); line-height: 1; margin-top: 16px;">{{ cat.script }}</div>
+              <h3 style="font-family: var(--font-serif); font-weight: 500; font-size: 27px; line-height: 1.2; color: var(--text-heading); margin: 4px 0 0;">{{ cat.title }}</h3>
+              <div data-rule style="height: 2px; width: 40px; background: var(--rule-gold); margin: 12px 0 14px;"></div>
+              <p style="font-family: var(--font-sans); font-size: 14px; line-height: 1.65; color: var(--text-muted); margin: 0; max-width: 300px;">{{ cat.blurb }}</p>
+            </div>
+            <div data-stagger onMouseLeave="{{ cat.onLeave }}" style="display: flex; flex-direction: column;">
+              <sc-for list="{{ cat.items }}" as="item" hint-placeholder-count="5">
+                <div data-reveal style="{{ item.rowStyle }}" onMouseEnter="{{ item.onEnter }}" onClick="{{ item.onTap }}">
+                  <span style="{{ item.dotStyle }}"></span>
+                  <div style="flex: 1;">
+                    <div style="display: flex; align-items: baseline; justify-content: space-between; gap: 16px;">
+                      <h4 style="{{ item.nameStyle }}">{{ item.name }}</h4>
+                      <span style="font-family: var(--font-sans); font-size: 12.5px; font-weight: 500; letter-spacing: 0.04em; color: var(--festa-navy-800); white-space: nowrap;">{{ item.pres }}</span>
+                    </div>
+                    <p style="font-family: var(--font-sans); font-size: 14px; line-height: 1.6; color: var(--text-body); margin: 6px 0 0; max-width: 560px;">{{ item.desc }}</p>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DÓNDE ENCONTRARNOS ============ -->
+  <section id="donde" style="background: var(--surface-page);">
+    <!-- cadenas nacionales -->
+    <div style="background: var(--festa-navy-800); color: #fff; padding: 84px 0;">
+      <div style="max-width: 1200px; margin: 0 auto; padding: 0 32px; text-align: center;">
+        <div data-reveal style="font-family: var(--font-sans); font-weight: 500; font-size: 12px; letter-spacing: 0.32em; text-transform: uppercase; color: rgba(255,255,255,0.7);">Alcance nacional</div>
+        <h2 data-reveal style="font-family: var(--font-serif); font-weight: 500; font-size: 40px; line-height: 1.18; color: #fff; margin: 14px 0 8px;">Encontranos en las principales cadenas</h2>
+        <p data-reveal style="font-family: var(--font-sans); font-size: 16px; line-height: 1.7; color: rgba(255,255,255,0.82); max-width: 560px; margin: 0 auto 42px;">Nuestros quesos llegan a las góndolas de los principales supermercados del país.</p>
+        <div data-stagger style="display: flex; flex-wrap: wrap; justify-content: center; gap: 18px;">
+          <sc-for list="{{ chains }}" as="c" hint-placeholder-count="5">
+            <div data-reveal style="min-width: 168px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.16); border-radius: 12px; padding: 24px 28px; display: flex; flex-direction: column; align-items: center; gap: 8px;">
+              <span style="font-family: var(--font-serif); font-weight: 600; font-size: 24px; letter-spacing: 0.02em; color: #fff;">{{ c }}</span>
+              <span style="height: 2px; width: 26px; background: var(--rule-gold);"></span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+
+    <!-- comercios de barrio -->
+    <div style="padding: 84px 0 96px;">
+      <div style="max-width: 1200px; margin: 0 auto; padding: 0 32px;">
+        <div data-reveal style="text-align: center; margin-bottom: 36px;">
+          <div style="font-family: var(--font-script); font-size: 28px; color: var(--festa-green-800); line-height: 1;">Cerca tuyo</div>
+          <div style="font-family: var(--font-sans); font-weight: 500; font-size: 12px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--text-muted); margin-top: 6px;">Comercios y locales de barrio</div>
+          <h2 style="font-family: var(--font-serif); font-weight: 500; font-size: 36px; line-height: 1.2; color: var(--text-heading); margin: 12px 0 0;">Almacenes, fiambrerías y tiendas gourmet</h2>
+          <div data-rule style="height: 2px; width: 48px; background: var(--rule-gold); margin: 18px auto 0;"></div>
+        </div>
+
+        <!-- province tabs -->
+        <div data-reveal style="display: flex; justify-content: center; gap: 4px; border-bottom: 1px solid var(--border-subtle); margin-bottom: 36px;">
+          <sc-for list="{{ provTabs }}" as="t" hint-placeholder-count="3">
+            <button onClick="{{ t.onClick }}" style="{{ t.style }}">{{ t.name }} <span style="opacity: 0.6; font-size: 11px;">· {{ t.count }}</span></button>
+          </sc-for>
+        </div>
+
+        <!-- active province groups -->
+        <div data-reveal style="max-width: 860px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px;">
+          <sc-for list="{{ activeGroups }}" as="g" hint-placeholder-count="2">
+            <div>
+              <div style="font-family: var(--font-sans); font-weight: 500; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--festa-green-800); margin-bottom: 4px;">{{ g.region }}</div>
+              <div style="height: 1px; background: var(--border-subtle); margin-bottom: 6px;"></div>
+              <sc-for list="{{ g.stores }}" as="s" hint-placeholder-count="4">
+                <div style="display: flex; align-items: baseline; gap: 16px; padding: 15px 4px; border-bottom: 1px solid var(--border-subtle);">
+                  <span style="flex: none; width: 7px; height: 7px; border-radius: 999px; background: var(--rule-gold); transform: translateY(-2px);"></span>
+                  <span style="flex: 1; font-family: var(--font-serif); font-weight: 600; font-size: 19px; color: var(--text-heading);">{{ s.name }}</span>
+                  <span style="flex: 1.2; font-family: var(--font-sans); font-size: 14px; color: var(--text-muted); text-align: right;">{{ s.addr }}</span>
+                </div>
+              </sc-for>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACTO ============ -->
+  <section id="contacto" style="background: var(--festa-green-800); color: #fff;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 32px; display: grid; grid-template-columns: 1fr 1fr; align-items: stretch;">
+      <div style="padding: 92px 56px 92px 0; display: flex; flex-direction: column; justify-content: center;">
+        <div data-reveal style="font-family: var(--font-sans); font-weight: 500; font-size: 12px; letter-spacing: 0.32em; text-transform: uppercase; color: rgba(255,255,255,0.72);">Contacto mayorista</div>
+        <h2 data-reveal style="font-family: var(--font-serif); font-weight: 500; font-size: 40px; line-height: 1.16; color: #fff; margin: 14px 0 16px;">Llevá Festa a tu comercio</h2>
+        <p data-reveal style="font-family: var(--font-sans); font-size: 17px; line-height: 1.75; color: rgba(255,255,255,0.85); margin: 0 0 34px; max-width: 440px;">Somos una empresa familiar y atendemos cada pedido con nombre y apellido. Contanos de tu local y coordinamos la mejor propuesta para tu góndola.</p>
+        <div data-stagger style="display: flex; flex-direction: column; gap: 20px;">
+          <a data-reveal href="tel:+541149914156" style="display: flex; align-items: center; gap: 16px; text-decoration: none; color: #fff;">
+            <span style="flex: none; width: 46px; height: 46px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.4); display: inline-flex; align-items: center; justify-content: center;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            </span>
+            <span><span style="display: block; font-family: var(--font-sans); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.62);">Ventas mayoristas</span><span style="font-family: var(--font-serif); font-weight: 600; font-size: 23px;">11 4991 4156</span></span>
+          </a>
+          <a data-reveal href="mailto:ventas@quesosfesta.com.ar" style="display: flex; align-items: center; gap: 16px; text-decoration: none; color: #fff;">
+            <span style="flex: none; width: 46px; height: 46px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.4); display: inline-flex; align-items: center; justify-content: center;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-10 6L2 7"></path></svg>
+            </span>
+            <span><span style="display: block; font-family: var(--font-sans); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.62);">Escribinos</span><span style="font-family: var(--font-serif); font-weight: 600; font-size: 23px;">ventas@quesosfesta.com.ar</span></span>
+          </a>
+          <a data-reveal href="https://instagram.com/quesosfesta" style="display: flex; align-items: center; gap: 16px; text-decoration: none; color: #fff;">
+            <span style="flex: none; width: 46px; height: 46px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.4); display: inline-flex; align-items: center; justify-content: center;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><line x1="17.5" y1="6.5" x2="17.5" y2="6.5"></line></svg>
+            </span>
+            <span><span style="display: block; font-family: var(--font-sans); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.62);">Seguinos</span><span style="font-family: var(--font-serif); font-weight: 600; font-size: 23px;">@quesosfesta</span></span>
+          </a>
+        </div>
+      </div>
+      <div style="min-height: 520px; background: url(assets/photos/foto-13.jpg) center/cover no-repeat;"></div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer style="background: var(--festa-navy-900); color: rgba(255,255,255,0.72);">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 60px 32px 28px; display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px;">
+      <div>
+        <div style="display: inline-flex; align-items: baseline; gap: 10px;">
+          <span style="font-family: var(--font-display); font-size: 30px; letter-spacing: 0.22em; text-transform: uppercase; padding-left: 0.22em; color: #fff; line-height: 1;">Festa</span>
+          <span style="font-family: var(--font-script); font-size: 20px; color: rgba(255,255,255,0.75); line-height: 1;">Familia Festa</span>
+        </div>
+        <p style="font-family: var(--font-sans); font-size: 14px; line-height: 1.7; margin: 18px 0 0; max-width: 320px;">Quesos frescos artesanales desde 1989. Receta original italiana, elaboración a mano, enteramente sin TACC.</p>
+        <div style="display: inline-flex; align-items: center; gap: 8px; margin-top: 18px; font-family: var(--font-sans); font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.6);">
+          <span style="display: inline-flex; width: 22px; height: 15px; border-radius: 2px; overflow: hidden;"><span style="flex:1;background:var(--italy-green)"></span><span style="flex:1;background:#fff"></span><span style="flex:1;background:var(--italy-red)"></span></span>
+          Industria Argentina
+        </div>
+      </div>
+      <div>
+        <div style="font-family: var(--font-sans); font-weight: 500; font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 16px;">Navegación</div>
+        <div style="display: flex; flex-direction: column; gap: 11px;">
+          <a href="#historia" style="font-family: var(--font-sans); font-size: 14px; color: rgba(255,255,255,0.78); text-decoration: none;" style-hover="color: #fff;">Historia</a>
+          <a href="#catalogo" style="font-family: var(--font-sans); font-size: 14px; color: rgba(255,255,255,0.78); text-decoration: none;" style-hover="color: #fff;">Catálogo</a>
+          <a href="#donde" style="font-family: var(--font-sans); font-size: 14px; color: rgba(255,255,255,0.78); text-decoration: none;" style-hover="color: #fff;">Dónde encontrarnos</a>
+          <a href="#contacto" style="font-family: var(--font-sans); font-size: 14px; color: rgba(255,255,255,0.78); text-decoration: none;" style-hover="color: #fff;">Contacto</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-family: var(--font-sans); font-weight: 500; font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 16px;">Contacto mayorista</div>
+        <div style="display: flex; flex-direction: column; gap: 11px; font-family: var(--font-sans); font-size: 14px;">
+          <a href="tel:+541149914156" style="color: rgba(255,255,255,0.78); text-decoration: none;" style-hover="color: #fff;">11 4991 4156</a>
+          <a href="mailto:ventas@quesosfesta.com.ar" style="color: rgba(255,255,255,0.78); text-decoration: none;" style-hover="color: #fff;">ventas@quesosfesta.com.ar</a>
+          <a href="https://instagram.com/quesosfesta" style="color: rgba(255,255,255,0.78); text-decoration: none;" style-hover="color: #fff;">@quesosfesta</a>
+        </div>
+      </div>
+    </div>
+    <div style="border-top: 1px solid rgba(255,255,255,0.1);">
+      <div style="max-width: 1200px; margin: 0 auto; padding: 20px 32px; display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+        <span style="font-family: var(--font-sans); font-size: 12px; color: rgba(255,255,255,0.5);">© 2026 Quesos Festa · Familia Festa. Todos los derechos reservados.</span>
+        <span style="font-family: var(--font-sans); font-size: 12px; color: rgba(255,255,255,0.5);">Powered by <span style="color: rgba(255,255,255,0.82);">Ignacio Weppler</span></span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1200,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  state = { prov: 'Buenos Aires', hoverCat: null, hoverItem: null };
+
+  data() {
+    const P = 'assets/photos/';
+    const NAVY = 'var(--accent-burrata)';
+    const GOLD = 'var(--accent-mascarpone)';
+    const BLUE = 'var(--accent-crema)';
+    const GREEN = 'var(--accent-descremado)';
+    const RUST = 'var(--accent-quark)';
+    const RES = (typeof window !== 'undefined' && window.__resources) ? window.__resources : {};
+    const resolve = (f) => f ? (RES[f.replace('.jpg', '')] || (P + f)) : '';
+    const mk = (name, badge, color, desc, pres, photo, tag) => ({
+      name, badge, color, desc, pres,
+      photo: resolve(photo),
+      noPhoto: !photo,
+      initial: name.trim().charAt(0).toUpperCase(),
+      tag: tag || '',
+    });
+    return [
+      {
+        title: 'Especialidades italianas',
+        script: 'Presentación de',
+        blurb: 'El corazón de nuestra casa: quesos de pasta hilada, elaborados pieza por pieza como manda la receta original.',
+        photo: resolve('foto-2.jpg'), photoBg: NAVY,
+        items: [
+          mk('Burrata', 'Burrata', NAVY, 'Corazón de stracciatella cremosa envuelto en una fina hoja de mozzarella hilada a mano.', 'Pote · 200 g', 'foto-12.jpg', 'Receta original'),
+          mk('Burratina Clásica', 'Burrata', NAVY, 'La burrata en su versión individual: delicada, cremosa y lista para lucir en la mesa.', 'Pote · 150 g', ''),
+          mk('Burratina Tartufo', 'Burrata', NAVY, 'Con trufa negra: un bocado de perfume intenso y elegante.', 'Pote · 150 g', 'foto-13.jpg', 'Con trufa'),
+          mk('Burratina Caprese', 'Burrata', NAVY, 'Tomate y albahaca en el corazón: la caprese hecha burratina.', 'Pote · 150 g', 'foto-14.jpg'),
+          mk('Burratina x10', 'Food service', NAVY, 'Formato profesional para restaurantes y cocinas exigentes.', 'Balde · 100 g × 10 u', ''),
+          mk('Bocconcino', 'Fresco hilado', NAVY, 'Pequeños bocados de mozzarella fresca, tiernos y jugosos.', 'Doypack / Bolsa · 150 g · 1 kg', ''),
+          mk('Stracciatella', 'Stracciatella', NAVY, 'Hebras de mozzarella en crema: el corazón mismo de la burrata.', 'Doypack / Pote · 250 g · 1 kg', 'foto-2.jpg'),
+          mk('Polpeta', 'Mozzarella', NAVY, 'Bocha de mozzarella fresca hilada, ideal para pizzas y ensaladas.', 'Doypack · 200 g · 1 kg', 'foto-10.jpg'),
+        ],
+      },
+      {
+        title: 'Cremas y untables',
+        script: 'Para untar y cocinar',
+        blurb: 'Texturas sedosas para la mesa dulce y la cocina profesional, incluida la línea Jiro Premium.',
+        photo: resolve('foto-11.jpg'), photoBg: GOLD,
+        items: [
+          mk('Mascarpone', 'Mascarpone', GOLD, 'Untable italiano de textura sedosa, base ineludible del tiramisú y la cocina dulce.', 'Pote / Bolsa · 250 g · 3 kg', 'foto-11.jpg'),
+          mk('Queso Crema', 'Crema', BLUE, 'Suave, parejo y versátil: para untar y para cocinar.', 'Pote / Bolsa · 290 g · 3 kg', ''),
+          mk('Jiro Premium', 'Premium', BLUE, 'Nuestra crema premium para pastelería y cocina profesional, de cuerpo firme y sabor limpio.', 'Manga · 1 kg', 'foto-9.jpg', 'Línea Premium'),
+          mk('Cottage', 'Cottage', BLUE, 'Queso fresco granulado, liviano y natural.', 'Pote / Balde · 250 g · 2,5 kg', 'foto-5.jpg'),
+        ],
+      },
+      {
+        title: 'Quesos blancos',
+        script: 'Frescura de todos los días',
+        blurb: 'La línea liviana y natural, también en formatos de 3 kg para food service.',
+        photo: resolve('foto-6.jpg'), photoBg: RUST,
+        items: [
+          mk('Queso Descremado', 'Descremado', GREEN, 'Untable liviano: la frescura de todos los días.', 'Pote / Bolsa · 290 g · 3 kg', 'foto-8.jpg'),
+          mk('Quark', 'Quark', RUST, 'Queso blanco magro de tradición europea, suave y neutro.', 'Bolsa · 3 kg', ''),
+          mk('Saborizado', 'Saborizado', RUST, 'Queso blanco saborizado, para propuestas de cocina y gastronomía.', 'Bolsa · 3 kg', 'foto-6.jpg'),
+        ],
+      },
+    ];
+  }
+
+  provinces() {
+    return [
+      { name: 'Buenos Aires', groups: [
+        { region: 'Oeste · Ramos Mejía y alrededores', stores: [
+          { name: 'Fiambrería La Avenida', addr: 'Av. de Mayo 877, Ramos Mejía' },
+          { name: 'Almacén La Esquina', addr: 'Mitre y Pueyrredón, Ramos Mejía' },
+          { name: 'La Proveeduría', addr: 'Gelly y Obes, Ramos Mejía' },
+          { name: 'La Taba', addr: 'Alvarado y Bolívar, Ramos Mejía' },
+          { name: 'Pranzo', addr: 'Acassuso 7189, Barrio Naón' },
+          { name: 'El Manchego', addr: 'San Martín 1549, Ramos Mejía' },
+          { name: 'Tienda Gourmet', addr: 'Mendoza 2538, San Justo' },
+        ] },
+        { region: 'Zona Norte', stores: [
+          { name: 'Fiambrería Kesitos', addr: 'Av. Boulogne Sur Mer 1253' },
+          { name: 'La Chacra · La Boutique del Salame', addr: 'Av. San Martín 3171, Belén de Escobar' },
+        ] },
+        { region: 'Zona Sur', stores: [
+          { name: 'El Palacio del Jamón', addr: 'Alem 299, Quilmes' },
+          { name: 'El Palacio del Jamón', addr: 'Calle 148 N.º 1272 (e/ 12 y 13), Berazategui' },
+          { name: 'Piacere', addr: 'Shopping Plaza Canning, Canning' },
+        ] },
+      ] },
+      { name: 'Santa Fe', groups: [
+        { region: 'Rosario y Santa Fe capital', stores: [
+          { name: 'Zaatar Fisherton', addr: 'Perón 7299, Rosario' },
+          { name: 'Zaatar Centro', addr: 'Av. Pellegrini 689, Rosario' },
+          { name: 'TAP Tienda', addr: 'Av. Gral. Paz 4921, Santa Fe' },
+        ] },
+      ] },
+      { name: 'Misiones', groups: [
+        { region: 'Oberá', stores: [
+          { name: 'Dinco I · Dini y Cía. S.R.L.', addr: 'Av. Sarmiento y Santa Fe' },
+          { name: 'Dinco III · Dini y Cía. S.R.L.', addr: 'Av. Libertad 540' },
+          { name: 'Panadería Doña Laura', addr: 'Av. Libertad 824' },
+          { name: 'Supermercado Gauze', addr: 'Leandro N. Alem 967' },
+          { name: 'La Frutería', addr: 'Santa Fe 60' },
+          { name: 'Supermercado El Cóndor', addr: 'Apóstoles Norte 951' },
+        ] },
+      ] },
+    ];
+  }
+
+  componentDidMount() {
+    const root = document.getElementById('festa');
+    if (!root) return;
+    const reveal = (el) => el.classList.add('is-in');
+    if (!('IntersectionObserver' in window)) {
+      root.querySelectorAll('[data-reveal],[data-rule]').forEach(reveal);
+      return;
+    }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        const el = e.target;
+        io.unobserve(el);
+        if (el.hasAttribute('data-stagger')) {
+          const kids = Array.from(el.querySelectorAll(':scope > [data-reveal]'));
+          kids.forEach((k, i) => setTimeout(() => reveal(k), i * 70));
+        } else {
+          reveal(el);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -7% 0px' });
+
+    root.querySelectorAll('[data-reveal]').forEach((el) => {
+      if (!el.closest('[data-stagger]')) io.observe(el);
+    });
+    root.querySelectorAll('[data-rule]').forEach((el) => io.observe(el));
+    root.querySelectorAll('[data-stagger]').forEach((el) => io.observe(el));
+    this._io = io;
+  }
+
+  componentWillUnmount() {
+    if (this._io) this._io.disconnect();
+  }
+
+  renderVals() {
+    const hc = this.state.hoverCat, hi = this.state.hoverItem;
+    const cats = this.data().map((cat, ci) => {
+      const hovering = hc === ci && hi != null;
+      const hItem = hovering ? cat.items[hi] : null;
+      const showOverlay = !!(hItem && hItem.photo);
+      const overlayPhoto = (hItem && hItem.photo) ? hItem.photo : cat.photo;
+      return {
+        ...cat,
+        overlayPhoto,
+        overlayStyle: {
+          position: 'absolute', inset: 0, width: '100%', height: '100%',
+          objectFit: 'cover', display: 'block',
+          opacity: showOverlay ? 1 : 0,
+          transition: 'opacity 460ms var(--ease-out)',
+        },
+        onLeave: () => this.setState({ hoverCat: null, hoverItem: null }),
+        items: cat.items.map((it, ii) => {
+          const active = hc === ci && hi === ii;
+          return {
+            ...it,
+            onEnter: () => this.setState({ hoverCat: ci, hoverItem: ii }),
+            onTap: () => this.setState((s) => (s.hoverCat === ci && s.hoverItem === ii)
+              ? { hoverCat: null, hoverItem: null }
+              : { hoverCat: ci, hoverItem: ii }),
+            rowStyle: {
+              display: 'flex', gap: '18px', alignItems: 'baseline',
+              padding: '20px 16px', margin: '0 -16px',
+              borderBottom: '1px solid var(--border-subtle)',
+              borderRadius: '10px', cursor: 'pointer',
+              background: active ? 'var(--surface-sunken)' : 'transparent',
+              transition: 'background 260ms var(--ease-out)',
+            },
+            dotStyle: {
+              flex: 'none', marginTop: '7px', width: '10px', height: '10px',
+              borderRadius: '999px', background: it.color,
+              transform: active ? 'scale(1.55)' : 'scale(1)',
+              transition: 'transform 260ms var(--ease-out)',
+            },
+            nameStyle: {
+              fontFamily: 'var(--font-serif)', fontWeight: active ? 700 : 600,
+              fontSize: '23px', lineHeight: 1.1, margin: 0,
+              color: active ? it.color : 'var(--text-heading)',
+              transition: 'color 260ms var(--ease-out)',
+            },
+          };
+        }),
+      };
+    });
+
+    const provs = this.provinces();
+    const tabBase = { padding: '13px 22px', border: 'none', background: 'transparent', cursor: 'pointer', fontFamily: 'var(--font-sans)', fontWeight: 500, fontSize: '13px', letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--text-muted)', borderBottom: '2px solid transparent', marginBottom: '-1px', transition: 'all 160ms var(--ease-out)' };
+    const tabActive = { ...tabBase, color: 'var(--festa-navy-800)', borderBottom: '2px solid var(--rule-gold)' };
+    const count = (p) => p.groups.reduce((n, g) => n + g.stores.length, 0);
+    const provTabs = provs.map((p) => ({
+      name: p.name,
+      count: count(p),
+      style: this.state.prov === p.name ? tabActive : tabBase,
+      onClick: () => this.setState({ prov: p.name }),
+    }));
+    const active = provs.find((p) => p.name === this.state.prov) || provs[0];
+
+    return {
+      cats,
+      pillars: [
+        { big: '1989', label: 'Empresa familiar, tres generaciones de oficio.' },
+        { big: 'A mano', label: 'Mozzarella hilada y burrata armada pieza por pieza.' },
+        { big: 'Italia', label: 'Fieles a la receta original italiana.' },
+        { big: 'Sin TACC', label: 'Toda la línea es libre de gluten.' },
+      ],
+      chains: ['Día', 'Disco', 'Vea', 'Jumbo', 'Carrefour'],
+      provTabs,
+      activeGroups: active.groups,
+    };
+  }
+}
+</script>
+</body>
+</html>
