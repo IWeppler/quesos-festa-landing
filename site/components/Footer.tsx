@@ -1,134 +1,104 @@
+import Link from "next/link";
+
+const footerLinkClass =
+  "font-sans text-sm text-white/78 no-underline transition-colors duration-150 hover:text-white";
+
+const footerHeadingClass =
+  "mb-4 font-sans text-[11px] font-medium uppercase tracking-[0.24em] text-white/50";
+
 export default function Footer() {
   return (
-    <footer style={{ background: "var(--festa-navy-900)", color: "rgba(255,255,255,0.72)" }}>
-      <div
-        style={{
-          maxWidth: 1200,
-          margin: "0 auto",
-          padding: "60px 32px 28px",
-          display: "grid",
-          gridTemplateColumns: "1.4fr 1fr 1fr",
-          gap: 40,
-        }}
-      >
+    <footer className="bg-festa-navy-900 text-white/72">
+      <div className="mx-auto grid max-w-300 gap-10 px-5 pt-12 pb-8 sm:px-8 sm:pt-15 lg:grid-cols-[1.4fr_1fr_1fr]">
         <div>
-          <div style={{ display: "inline-flex", alignItems: "baseline", gap: 10 }}>
-            <span
-              style={{
-                fontFamily: "var(--font-display)",
-                fontSize: 30,
-                letterSpacing: "0.22em",
-                textTransform: "uppercase",
-                paddingLeft: "0.22em",
-                color: "#fff",
-                lineHeight: 1,
-              }}
-            >
+          <div className="inline-flex flex-col sm:flex-row sm:items-baseline sm:gap-2.5">
+            <span className="pl-[0.22em] font-display text-[28px] uppercase leading-none tracking-[0.22em] text-white sm:text-[30px]">
               Festa
             </span>
-            <span style={{ fontFamily: "var(--font-script)", fontSize: 20, color: "rgba(255,255,255,0.75)", lineHeight: 1 }}>
+            <span className="font-script text-xl leading-none text-white/75">
               Familia Festa
             </span>
           </div>
-          <p style={{ fontFamily: "var(--font-sans)", fontSize: 14, lineHeight: 1.7, margin: "18px 0 0", maxWidth: 320 }}>
-            Quesos frescos artesanales desde 1989. Receta original italiana, elaboración a mano,
-            enteramente sin TACC.
+          <p className="m-0 mt-4 max-w-80 font-sans text-sm leading-[1.7]">
+            Quesos frescos artesanales desde 1989. Receta original italiana,
+            elaboración a mano, enteramente sin TACC.
           </p>
-          <div
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: 8,
-              marginTop: 18,
-              fontFamily: "var(--font-sans)",
-              fontSize: 11,
-              letterSpacing: "0.2em",
-              textTransform: "uppercase",
-              color: "rgba(255,255,255,0.6)",
-            }}
-          >
-            <span style={{ display: "inline-flex", width: 22, height: 15, borderRadius: 2, overflow: "hidden" }}>
-              <span style={{ flex: 1, background: "var(--italy-green)" }} />
-              <span style={{ flex: 1, background: "#fff" }} />
-              <span style={{ flex: 1, background: "var(--italy-red)" }} />
+          <div className="mt-4 inline-flex items-center gap-2 font-sans text-xs uppercase tracking-[0.2em] text-white/60">
+            <span className="inline-flex h-4 w-5 overflow-hidden rounded-xs">
+              <span className="flex-1 bg-italy-green" />
+              <span className="flex-1 bg-white" />
+              <span className="flex-1 bg-italy-red" />
             </span>
             Industria Argentina
           </div>
         </div>
+
         <div>
-          <div
-            style={{
-              fontFamily: "var(--font-sans)",
-              fontWeight: 500,
-              fontSize: 11,
-              letterSpacing: "0.24em",
-              textTransform: "uppercase",
-              color: "rgba(255,255,255,0.5)",
-              marginBottom: 16,
-            }}
-          >
-            Navegación
-          </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: 11 }}>
-            <a href="#historia" className="footer-link" style={{ fontFamily: "var(--font-sans)", fontSize: 14 }}>
+          <div className={footerHeadingClass}>Navegación</div>
+          <div className="flex flex-col gap-3">
+            <a href="#historia" className={footerLinkClass}>
               Historia
             </a>
-            <a href="#catalogo" className="footer-link" style={{ fontFamily: "var(--font-sans)", fontSize: 14 }}>
+            <a href="#catalogo" className={footerLinkClass}>
               Catálogo
             </a>
-            <a href="#donde" className="footer-link" style={{ fontFamily: "var(--font-sans)", fontSize: 14 }}>
+            <a href="#donde" className={footerLinkClass}>
               Dónde encontrarnos
             </a>
-            <a href="#contacto" className="footer-link" style={{ fontFamily: "var(--font-sans)", fontSize: 14 }}>
+            <a href="#contacto" className={footerLinkClass}>
               Contacto
             </a>
           </div>
         </div>
+
         <div>
-          <div
-            style={{
-              fontFamily: "var(--font-sans)",
-              fontWeight: 500,
-              fontSize: 11,
-              letterSpacing: "0.24em",
-              textTransform: "uppercase",
-              color: "rgba(255,255,255,0.5)",
-              marginBottom: 16,
-            }}
-          >
-            Contacto mayorista
-          </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: 11, fontFamily: "var(--font-sans)", fontSize: 14 }}>
-            <a href="tel:+541149914156" className="footer-link">
-              11 4991 4156
-            </a>
-            <a href="mailto:ventas@quesosfesta.com.ar" className="footer-link">
+          <div className={footerHeadingClass}>Contacto mayorista</div>
+          <div className="flex flex-col gap-3">
+            <Link
+              href="https://wa.me/541149914156"
+              target="_blank"
+              className={footerLinkClass}
+            >
+              +54 11 4991 4156
+            </Link>
+            <Link
+              href="mailto:ventas@quesosfesta.com.ar"
+              className={footerLinkClass}
+            >
               ventas@quesosfesta.com.ar
-            </a>
-            <a href="https://instagram.com/quesosfesta" className="footer-link">
-              @quesosfesta
-            </a>
+            </Link>
+            <Link
+              href="https://instagram.com/quesosfesta"
+              target="_blank"
+              className={footerLinkClass}
+            >
+              Instagram
+            </Link>
+            <Link
+              href="https://www.facebook.com/festaquesos?locale=es_LA"
+              target="_blank"
+              className={footerLinkClass}
+            >
+              Facebook
+            </Link>
           </div>
         </div>
       </div>
-      <div style={{ borderTop: "1px solid rgba(255,255,255,0.1)" }}>
-        <div
-          style={{
-            maxWidth: 1200,
-            margin: "0 auto",
-            padding: "20px 32px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            gap: 16,
-            flexWrap: "wrap",
-          }}
-        >
-          <span style={{ fontFamily: "var(--font-sans)", fontSize: 12, color: "rgba(255,255,255,0.5)" }}>
+
+      <div className="border-t border-white/10">
+        <div className="mx-auto flex max-w-300 flex-col gap-2 px-5 py-5 font-sans text-xs text-white/50 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:gap-4 sm:px-8">
+          <span>
             © 2026 Quesos Festa · Familia Festa. Todos los derechos reservados.
           </span>
-          <span style={{ fontFamily: "var(--font-sans)", fontSize: 12, color: "rgba(255,255,255,0.5)" }}>
-            Powered by <span style={{ color: "rgba(255,255,255,0.82)" }}>Ignacio Weppler</span>
+          <span>
+            Powered by{" "}
+            <Link
+              href="https://ignacioweppler.com"
+              target="_blank"
+              className="text-white/82"
+            >
+              Ignacio Weppler
+            </Link>
           </span>
         </div>
       </div>

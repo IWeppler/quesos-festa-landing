@@ -1,3 +1,31 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Jost", "Century Gothic", system-ui, sans-serif;
+  --font-display: "Cinzel", "Trajan Pro", serif;
+  --font-script: "Parisienne", "Snell Roundhand", cursive;
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+
+  --color-festa-navy-900: var(--festa-navy-900);
+  --color-festa-navy-800: var(--festa-navy-800);
+  --color-festa-navy-700: var(--festa-navy-700);
+  --color-festa-green-800: var(--festa-green-800);
+  --color-surface-page: var(--surface-page);
+  --color-surface-card: var(--surface-card);
+  --color-surface-sunken: var(--surface-sunken);
+  --color-text-heading: var(--text-heading);
+  --color-text-body: var(--text-body);
+  --color-text-muted: var(--text-muted);
+  --color-border-subtle: var(--border-subtle);
+  --color-rule-gold: var(--rule-gold);
+  --color-success: var(--success);
+  --color-italy-green: var(--italy-green);
+  --color-italy-red: var(--italy-red);
+
+  --shadow-festa-md: var(--shadow-md);
+  --shadow-festa-lg: var(--shadow-lg);
+}
+
 /* ===========================================================================
    Quesos Festa — design tokens
    Ported from the Claude Design handoff bundle (project/_ds/.../tokens/*.css)
@@ -90,27 +118,29 @@
   --ease-inout: cubic-bezier(0.65, 0, 0.35, 1);
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
 
-html {
-  scroll-behavior: smooth;
-}
+  html {
+    scroll-behavior: smooth;
+  }
 
-body {
-  margin: 0;
-  font-family: var(--font-sans);
-  color: var(--text-body);
-  background: var(--surface-page);
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-}
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    color: var(--text-body);
+    background: var(--surface-page);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
 
-a {
-  color: inherit;
+  a {
+    color: inherit;
+  }
 }
 
 #festa section[id] {
@@ -160,31 +190,6 @@ a {
   }
 }
 
-.nav-link {
-  font-family: var(--font-sans);
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--text-body);
-  text-decoration: none;
-  transition: color 160ms var(--ease-out);
-}
-.nav-link:hover {
-  color: var(--festa-navy-800);
-}
-.nav-link-cta {
-  color: #fff;
-  background: var(--festa-navy-800);
-  padding: 9px 18px;
-  border-radius: 999px;
-  transition: background 160ms var(--ease-out);
-}
-.nav-link-cta:hover {
-  background: var(--festa-navy-700);
-  color: #fff;
-}
-
 .hero-btn-primary {
   transition: background 160ms var(--ease-out);
 }
@@ -196,35 +201,6 @@ a {
 }
 .hero-btn-secondary:hover {
   background: rgba(255, 255, 255, 0.1);
-}
-
-.footer-link {
-  color: rgba(255, 255, 255, 0.78);
-  text-decoration: none;
-  transition: color 160ms var(--ease-out);
-}
-.footer-link:hover {
-  color: #fff;
-}
-
-.prov-tab {
-  padding: 13px 22px;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  font-family: var(--font-sans);
-  font-weight: 500;
-  font-size: 13px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  border-bottom: 2px solid transparent;
-  margin-bottom: -1px;
-  transition: all 160ms var(--ease-out);
-}
-.prov-tab.is-active {
-  color: var(--festa-navy-800);
-  border-bottom: 2px solid var(--rule-gold);
 }
 
 .catalogo-row {
@@ -265,12 +241,3 @@ a {
   font-weight: 700;
 }
 
-.catalogo-overlay-img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: opacity 460ms var(--ease-out);
-}

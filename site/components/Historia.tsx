@@ -1,131 +1,59 @@
 export default function Historia() {
   return (
-    <section id="historia" style={{ padding: "96px 0", background: "var(--surface-page)" }}>
-      <div
-        style={{
-          maxWidth: 1200,
-          margin: "0 auto",
-          padding: "0 32px",
-          display: "grid",
-          gridTemplateColumns: "1.05fr 0.95fr",
-          gap: 64,
-          alignItems: "center",
-        }}
-      >
+    <section id="historia" className="bg-surface-page py-16 sm:py-20 lg:py-24">
+      <div className="mx-auto grid max-w-300 gap-10 px-5 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-16">
         <div data-reveal>
-          <div style={{ fontFamily: "var(--font-script)", fontSize: 30, color: "var(--festa-green-800)", lineHeight: 1 }}>
+          <div className="font-script text-3xl leading-none text-festa-green-800">
             Nuestra historia
           </div>
-          <div
-            style={{
-              fontFamily: "var(--font-sans)",
-              fontWeight: 500,
-              fontSize: 12,
-              letterSpacing: "0.32em",
-              textTransform: "uppercase",
-              color: "var(--text-muted)",
-              marginTop: 6,
-            }}
-          >
+          <div className="mt-1.5 font-sans text-xs font-medium uppercase tracking-[0.32em] text-text-muted">
             Familia Festa · Desde 1989
           </div>
-          <div data-rule style={{ height: 2, width: 48, background: "var(--rule-gold)", margin: "18px 0 24px" }} />
-          <h2
-            style={{
-              fontFamily: "var(--font-serif)",
-              fontWeight: 500,
-              fontSize: 42,
-              lineHeight: 1.18,
-              color: "var(--text-heading)",
-              margin: "0 0 22px",
-            }}
-          >
+          <div data-rule className="my-[18px] h-0.5 w-12 bg-rule-gold" />
+          <h2 className="m-0 mb-[22px] font-serif text-[32px] font-medium leading-[1.18] text-text-heading sm:text-[38px] lg:text-[42px]">
             El oficio de hacer queso, de una familia a tu mesa
           </h2>
-          <p style={{ fontFamily: "var(--font-sans)", fontSize: 17, lineHeight: 1.8, color: "var(--text-body)", margin: "0 0 18px" }}>
-            Empezamos en 1989 con una convicción sencilla: respetar la receta original italiana y
-            no apurar lo que el tiempo hace mejor. Tres décadas y media después, seguimos hilando
-            la mozzarella y armando cada burrata a mano, pieza por pieza.
+          <p className="m-0 mb-[18px] font-sans text-base leading-[1.75] text-text-body sm:text-[17px] sm:leading-[1.8]">
+            Empezamos en 1989 con una convicción sencilla: respetar la receta
+            original italiana y no apurar lo que el tiempo hace mejor. Tres
+            décadas y media después, seguimos hilando la mozzarella y armando
+            cada burrata a mano, pieza por pieza.
           </p>
-          <p style={{ fontFamily: "var(--font-sans)", fontSize: 17, lineHeight: 1.8, color: "var(--text-body)", margin: "0 0 28px" }}>
-            Elegimos leche seleccionada, procesos cuidados y nada de atajos. Así nacen quesos
-            frescos de textura sedosa y sabor limpio — toda nuestra línea, además, es enteramente{" "}
-            <strong style={{ color: "var(--festa-navy-800)", fontWeight: 600 }}>sin TACC</strong>,
-            libre de gluten.
+          <p className="m-0 mb-7 font-sans text-base leading-[1.75] text-text-body sm:text-[17px] sm:leading-[1.8]">
+            Elegimos leche seleccionada, procesos cuidados y nada de atajos. Así
+            nacen quesos frescos de textura sedosa y sabor limpio, toda nuestra
+            línea, además, es enteramente{" "}
+            <strong className="font-semibold text-festa-navy-800">
+              sin TACC
+            </strong>
+            , libre de gluten.
           </p>
-          <div style={{ display: "flex", alignItems: "center", gap: 20, flexWrap: "wrap" }}>
-            <span
-              style={{
-                display: "inline-flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-                width: 96,
-                height: 96,
-                borderRadius: 999,
-                border: "2px solid var(--rule-gold)",
-                color: "var(--festa-navy-800)",
-                textAlign: "center",
-              }}
-            >
-              <span style={{ fontFamily: "var(--font-display)", fontSize: 20, lineHeight: 1, letterSpacing: "0.06em" }}>
+          <div className="flex flex-wrap items-center gap-5">
+            <span className="inline-flex h-24 w-24 flex-col items-center justify-center rounded-full border-2 border-rule-gold text-center text-festa-navy-800">
+              <span className="font-display text-xl leading-none tracking-[0.06em]">
                 Sin TACC
               </span>
-              <span style={{ height: 1, width: 34, background: "var(--rule-gold)", margin: "5px 0" }} />
-              <span
-                style={{
-                  fontFamily: "var(--font-sans)",
-                  fontSize: 9,
-                  letterSpacing: "0.14em",
-                  textTransform: "uppercase",
-                  color: "var(--text-muted)",
-                }}
-              >
+              <span className="my-1.25 h-px w-[34px] bg-rule-gold" />
+              <span className="font-sans text-[9px] uppercase tracking-[0.14em] text-text-muted">
                 Libre de gluten
               </span>
             </span>
-            <div style={{ fontFamily: "var(--font-sans)", fontSize: 14, lineHeight: 1.6, color: "var(--text-muted)", maxWidth: 260 }}>
+            <div className="max-w-65 font-sans text-sm leading-[1.6] text-text-muted">
               Reconocidos en el{" "}
-              <strong style={{ color: "var(--festa-navy-800)", fontWeight: 600 }}>4.º Mundial del Queso</strong>, Brasil
-              2026.
+              <strong className="font-semibold text-festa-navy-800">
+                4.º Mundial del Queso
+              </strong>
+              , Brasil 2026.
             </div>
           </div>
         </div>
-        <div data-reveal style={{ position: "relative" }}>
-          <div
-            style={{
-              aspectRatio: "4/5",
-              borderRadius: 16,
-              overflow: "hidden",
-              boxShadow: "var(--shadow-lg)",
-              background: "url(/assets/photos/foto-1.jpg) center/cover no-repeat",
-            }}
-          />
-          <div
-            style={{
-              position: "absolute",
-              left: -22,
-              bottom: -22,
-              background: "var(--festa-navy-800)",
-              color: "#fff",
-              padding: "20px 26px",
-              borderRadius: 14,
-              boxShadow: "var(--shadow-md)",
-            }}
-          >
-            <div style={{ fontFamily: "var(--font-display)", fontSize: 40, lineHeight: 1, letterSpacing: "0.02em" }}>
+        <div data-reveal className="relative mx-auto w-full max-w-105 lg:max-w-none">
+          <div className="aspect-4/5 overflow-hidden rounded-2xl bg-[url('/assets/photos/foto-9.webp')] bg-cover bg-center shadow-festa-lg" />
+          <div className="absolute -bottom-4 left-4 rounded-[14px] bg-festa-navy-800 px-5 py-4 text-white shadow-festa-md sm:-bottom-[22px] sm:-left-[22px] sm:px-6 sm:py-5">
+            <div className="font-display text-[32px] leading-none tracking-[0.02em] sm:text-[40px]">
               35+
             </div>
-            <div
-              style={{
-                fontFamily: "var(--font-sans)",
-                fontSize: 11,
-                letterSpacing: "0.22em",
-                textTransform: "uppercase",
-                color: "rgba(255,255,255,0.78)",
-                marginTop: 6,
-              }}
-            >
+            <div className="mt-1.5 font-sans text-[11px] uppercase tracking-[0.22em] text-white/78">
               Años de oficio
             </div>
           </div>

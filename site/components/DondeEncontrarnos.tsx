@@ -3,125 +3,86 @@
 import { useState } from "react";
 import { chains, provinces } from "@/lib/data";
 
+function getMapsUrl(store: { name: string; addr: string; mapsUrl?: string }) {
+  return (
+    store.mapsUrl ??
+    `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+      `${store.name}, ${store.addr}`,
+    )}`
+  );
+}
+
 export default function DondeEncontrarnos() {
   const [prov, setProv] = useState(provinces[0].name);
   const active = provinces.find((p) => p.name === prov) ?? provinces[0];
 
   return (
-    <section id="donde" style={{ background: "var(--surface-page)" }}>
-      {/* cadenas nacionales */}
-      <div style={{ background: "var(--festa-navy-800)", color: "#fff", padding: "84px 0" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 32px", textAlign: "center" }}>
+    <section id="donde" className="bg-surface-page">
+      <div className="bg-festa-navy-800 py-16 text-white sm:py-20 lg:py-[84px]">
+        <div className="mx-auto max-w-300 px-5 text-center sm:px-8">
           <div
             data-reveal
-            style={{
-              fontFamily: "var(--font-sans)",
-              fontWeight: 500,
-              fontSize: 12,
-              letterSpacing: "0.32em",
-              textTransform: "uppercase",
-              color: "rgba(255,255,255,0.7)",
-            }}
+            className="font-sans text-xs font-medium uppercase tracking-[0.32em] text-white/70"
           >
             Alcance nacional
           </div>
           <h2
             data-reveal
-            style={{
-              fontFamily: "var(--font-serif)",
-              fontWeight: 500,
-              fontSize: 40,
-              lineHeight: 1.18,
-              color: "#fff",
-              margin: "14px 0 8px",
-            }}
+            className="m-0 mt-3.5 mb-2 font-serif text-[32px] font-medium leading-[1.18] text-white sm:text-[40px]"
           >
             Encontranos en las principales cadenas
           </h2>
           <p
             data-reveal
-            style={{
-              fontFamily: "var(--font-sans)",
-              fontSize: 16,
-              lineHeight: 1.7,
-              color: "rgba(255,255,255,0.82)",
-              maxWidth: 560,
-              margin: "0 auto 42px",
-            }}
+            className="mx-auto mb-10 max-w-140 font-sans text-base leading-[1.7] text-white/82"
           >
-            Nuestros quesos llegan a las góndolas de los principales supermercados del país.
+            Nuestros quesos llegan a las góndolas de los principales
+            supermercados del país.
           </p>
-          <div data-stagger style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: 18 }}>
+          <div
+            data-stagger
+            className="mx-auto grid max-w-225 grid-cols-2 justify-items-center gap-4.5 sm:grid-cols-3 lg:grid-cols-5"
+          >
             {chains.map((c) => (
               <div
-                key={c}
+                key={c.name}
                 data-reveal
-                style={{
-                  minWidth: 168,
-                  background: "rgba(255,255,255,0.05)",
-                  border: "1px solid rgba(255,255,255,0.16)",
-                  borderRadius: 12,
-                  padding: "24px 28px",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  gap: 8,
-                }}
+                className="flex min-w-42 flex-col items-center gap-2 rounded-xl border border-white/16 bg-white/5 px-7 py-6"
               >
-                <span style={{ fontFamily: "var(--font-serif)", fontWeight: 600, fontSize: 24, letterSpacing: "0.02em", color: "#fff" }}>
-                  {c}
-                </span>
-                <span style={{ height: 2, width: 26, background: "var(--rule-gold)" }} />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={c.image}
+                  alt={c.name}
+                  className="block h-13 w-29 object-contain"
+                />
+                <span className="h-0.5 w-6.5 bg-rule-gold" />
               </div>
             ))}
           </div>
         </div>
       </div>
 
-      {/* comercios de barrio */}
-      <div style={{ padding: "84px 0 96px" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 32px" }}>
-          <div data-reveal style={{ textAlign: "center", marginBottom: 36 }}>
-            <div style={{ fontFamily: "var(--font-script)", fontSize: 28, color: "var(--festa-green-800)", lineHeight: 1 }}>
+      <div className="py-16 sm:py-20 lg:py-[84px] lg:pb-24">
+        <div className="mx-auto max-w-300 px-5 sm:px-8">
+          <div data-reveal className="mb-9 text-center">
+            <div className="font-script text-[28px] leading-none text-festa-green-800">
               Cerca tuyo
             </div>
-            <div
-              style={{
-                fontFamily: "var(--font-sans)",
-                fontWeight: 500,
-                fontSize: 12,
-                letterSpacing: "0.32em",
-                textTransform: "uppercase",
-                color: "var(--text-muted)",
-                marginTop: 6,
-              }}
-            >
+            <div className="mt-1.5 font-sans text-xs font-medium uppercase tracking-[0.32em] text-text-muted">
               Comercios y locales de barrio
             </div>
-            <h2
-              style={{
-                fontFamily: "var(--font-serif)",
-                fontWeight: 500,
-                fontSize: 36,
-                lineHeight: 1.2,
-                color: "var(--text-heading)",
-                margin: "12px 0 0",
-              }}
-            >
+            <h2 className="m-0 mt-3 font-serif text-[30px] font-medium leading-[1.2] text-text-heading sm:text-4xl">
               Almacenes, fiambrerías y tiendas gourmet
             </h2>
-            <div data-rule style={{ height: 2, width: 48, background: "var(--rule-gold)", margin: "18px auto 0" }} />
+            <div
+              data-rule
+              className="mx-auto mt-[18px] h-0.5 w-12 bg-rule-gold"
+            />
           </div>
 
           <div
             data-reveal
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              gap: 4,
-              borderBottom: "1px solid var(--border-subtle)",
-              marginBottom: 36,
-            }}
+            className="mb-9 flex justify-start gap-1 overflow-x-auto border-b border-border-subtle sm:justify-center"
           >
             {provinces.map((p) => {
               const count = p.groups.reduce((n, g) => n + g.stores.length, 0);
@@ -130,58 +91,43 @@ export default function DondeEncontrarnos() {
                 <button
                   key={p.name}
                   onClick={() => setProv(p.name)}
-                  className={`prov-tab${isActive ? " is-active" : ""}`}
+                  className={`mb-[-1px] cursor-pointer whitespace-nowrap border-0 border-b-2 bg-transparent px-[22px] py-[13px] font-sans text-[13px] font-medium uppercase tracking-[0.08em] transition-colors duration-150 ${
+                    isActive
+                      ? "border-rule-gold text-festa-navy-800"
+                      : "border-transparent text-text-muted hover:text-festa-navy-800"
+                  }`}
                 >
-                  {p.name} <span style={{ opacity: 0.6, fontSize: 11 }}>· {count}</span>
+                  {p.name}{" "}
+                  <span className="text-[11px] opacity-60">· {count}</span>
                 </button>
               );
             })}
           </div>
 
-          <div data-reveal style={{ maxWidth: 860, margin: "0 auto", display: "flex", flexDirection: "column", gap: 40 }}>
+          <div data-reveal className="mx-auto flex max-w-215 flex-col gap-10">
             {active.groups.map((g) => (
               <div key={g.region}>
-                <div
-                  style={{
-                    fontFamily: "var(--font-sans)",
-                    fontWeight: 500,
-                    fontSize: 12,
-                    letterSpacing: "0.2em",
-                    textTransform: "uppercase",
-                    color: "var(--festa-green-800)",
-                    marginBottom: 4,
-                  }}
-                >
+                <div className="mb-1 font-sans text-xs font-medium uppercase tracking-[0.2em] text-festa-green-800">
                   {g.region}
                 </div>
-                <div style={{ height: 1, background: "var(--border-subtle)", marginBottom: 6 }} />
+                <div className="mb-1.5 h-px bg-border-subtle" />
                 {g.stores.map((s) => (
                   <div
                     key={s.name + s.addr}
-                    style={{
-                      display: "flex",
-                      alignItems: "baseline",
-                      gap: 16,
-                      padding: "15px 4px",
-                      borderBottom: "1px solid var(--border-subtle)",
-                    }}
+                    className="flex flex-col gap-1 border-b border-border-subtle px-1 py-4 sm:flex-row sm:items-baseline sm:gap-4"
                   >
-                    <span
-                      style={{
-                        flex: "none",
-                        width: 7,
-                        height: 7,
-                        borderRadius: 999,
-                        background: "var(--rule-gold)",
-                        transform: "translateY(-2px)",
-                      }}
-                    />
-                    <span style={{ flex: 1, fontFamily: "var(--font-serif)", fontWeight: 600, fontSize: 19, color: "var(--text-heading)" }}>
+                    <span className="hidden h-[7px] w-[7px] shrink-0 translate-y-[-2px] rounded-full bg-rule-gold sm:block" />
+                    <span className="flex-1 font-serif text-[19px] font-semibold text-text-heading">
                       {s.name}
                     </span>
-                    <span style={{ flex: 1.2, fontFamily: "var(--font-sans)", fontSize: 14, color: "var(--text-muted)", textAlign: "right" }}>
+                    <a
+                      href={getMapsUrl(s)}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex-[1.2] font-sans text-sm text-text-muted transition-colors duration-150 hover:text-festa-navy-800 sm:text-right"
+                    >
                       {s.addr}
-                    </span>
+                    </a>
                   </div>
                 ))}
               </div>
