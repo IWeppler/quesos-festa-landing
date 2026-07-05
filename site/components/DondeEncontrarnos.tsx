@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { chains, provinces } from "@/lib/data";
+import type { Chain, Province, Store } from "@/lib/data";
 
-function getMapsUrl(store: { name: string; addr: string; mapsUrl?: string }) {
+function getMapsUrl(store: Store) {
   return (
     store.mapsUrl ??
     `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
@@ -12,8 +12,14 @@ function getMapsUrl(store: { name: string; addr: string; mapsUrl?: string }) {
   );
 }
 
-export default function DondeEncontrarnos() {
-  const [prov, setProv] = useState(provinces[0].name);
+export default function DondeEncontrarnos({
+  chains,
+  provinces,
+}: {
+  chains: Chain[];
+  provinces: Province[];
+}) {
+  const [prov, setProv] = useState(provinces[0]?.name ?? "");
   const active = provinces.find((p) => p.name === prov) ?? provinces[0];
 
   return (
@@ -76,13 +82,13 @@ export default function DondeEncontrarnos() {
             </h2>
             <div
               data-rule
-              className="mx-auto mt-[18px] h-0.5 w-12 bg-rule-gold"
+              className="mx-auto mt-5 h-0.5 w-12 bg-rule-gold"
             />
           </div>
 
           <div
             data-reveal
-            className="mb-9 flex justify-start gap-1 overflow-x-auto border-b border-border-subtle sm:justify-center"
+            className="mb-9 flex justify-start gap-1 overflow-x-auto  overflow-y-hidden border-b border-border-subtle sm:justify-center"
           >
             {provinces.map((p) => {
               const count = p.groups.reduce((n, g) => n + g.stores.length, 0);
@@ -91,7 +97,7 @@ export default function DondeEncontrarnos() {
                 <button
                   key={p.name}
                   onClick={() => setProv(p.name)}
-                  className={`mb-[-1px] cursor-pointer whitespace-nowrap border-0 border-b-2 bg-transparent px-[22px] py-[13px] font-sans text-[13px] font-medium uppercase tracking-[0.08em] transition-colors duration-150 ${
+                  className={`mb-[-1px] cursor-pointer whitespace-nowrap border-0 border-b-2 bg-transparent px-5 py-3 font-sans text-[13px] font-medium uppercase tracking-[0.08em] transition-colors duration-150 ${
                     isActive
                       ? "border-rule-gold text-festa-navy-800"
                       : "border-transparent text-text-muted hover:text-festa-navy-800"
@@ -105,7 +111,7 @@ export default function DondeEncontrarnos() {
           </div>
 
           <div data-reveal className="mx-auto flex max-w-215 flex-col gap-10">
-            {active.groups.map((g) => (
+            {active?.groups.map((g) => (
               <div key={g.region}>
                 <div className="mb-1 font-sans text-xs font-medium uppercase tracking-[0.2em] text-festa-green-800">
                   {g.region}

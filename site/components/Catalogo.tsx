@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { categories } from "@/lib/data";
+import type { Category } from "@/lib/data";
 
-export default function Catalogo() {
+export default function Catalogo({ categories }: { categories: Category[] }) {
   const [hover, setHover] = useState<{ cat: number; item: number } | null>(
     null,
   );
