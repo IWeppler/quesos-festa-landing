@@ -1,14 +1,24 @@
+import Image from "next/image";
+
 export default function Hero() {
   return (
-    <section
-      id="top"
-      className="relative flex min-h-160 items-center"
-      style={{
-        background:
-          "linear-gradient(88deg, rgba(20,23,63,0.95) 0%, rgba(20,23,63,0.86) 34%, rgba(20,23,63,0.5) 66%, rgba(20,23,63,0.1) 100%), url(/assets/photos/banner.webp) center/cover no-repeat",
-      }}
-    >
-      <div className="mx-auto w-full max-w-300 px-8 py-18">
+    <section id="top" className="relative flex min-h-160 items-center overflow-hidden">
+      <Image
+        src="/assets/photos/banner.webp"
+        alt="Selección de quesos frescos artesanales Quesos Festa"
+        fill
+        priority
+        sizes="100vw"
+        className="object-cover"
+      />
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(88deg, rgba(20,23,63,0.95) 0%, rgba(20,23,63,0.86) 34%, rgba(20,23,63,0.5) 66%, rgba(20,23,63,0.1) 100%)",
+        }}
+      />
+      <div className="relative z-10 mx-auto w-full max-w-300 px-8 py-18">
         <div className="max-w-155 text-white animate-[festaFade_640ms_var(--ease-out)_both]">
           <div className="mb-5 inline-flex items-center gap-2.5">
             <span className="inline-flex h-4 w-6 overflow-hidden rounded-xs">
@@ -47,7 +57,7 @@ export default function Hero() {
           </div>
         </div>
       </div>
-      <div className="absolute right-8 bottom-7 flex items-center gap-2 font-sans text-[11px] uppercase tracking-[0.28em] text-white/70">
+      <div className="absolute z-10 right-8 bottom-7 flex items-center gap-2 font-sans text-[11px] uppercase tracking-[0.28em] text-white/70">
         Industria Argentina
       </div>
     </section>

@@ -1,10 +1,59 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://quesosfesta.com.ar";
+
+const title = "Quesos Festa · Quesos frescos artesanales desde 1989";
+const description =
+  "Quesos frescos artesanales elaborados a mano estilo italiano: burrata, mascarpone, stracciatella y más. Enteramente sin TACC. Más de 35 años de tradición familiar en Argentina.";
+
 export const metadata: Metadata = {
-  title: "Quesos Festa · Quesos frescos artesanales desde 1989",
-  description:
-    "Quesos frescos artesanales, elaboración estilo italiano, enteramente sin TACC. Más de 35 años de tradición familiar.",
+  metadataBase: new URL(siteUrl),
+  title,
+  description,
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "es_AR",
+    url: siteUrl,
+    siteName: "Quesos Festa",
+    title,
+    description,
+    images: [
+      {
+        url: "/assets/photos/banner.webp",
+        width: 1672,
+        height: 941,
+        alt: "Quesos frescos artesanales Quesos Festa",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title,
+    description,
+    images: ["/assets/photos/banner.webp"],
+  },
+};
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Quesos Festa",
+  url: siteUrl,
+  logo: `${siteUrl}/assets/logo/festa-logo.jpg`,
+  description,
+  sameAs: ["https://instagram.com/quesosfesta", "https://www.facebook.com/festaquesos"],
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+54-11-4991-4156",
+    contactType: "sales",
+    email: "ventas@quesosfesta.com.ar",
+    areaServed: "AR",
+    availableLanguage: "Spanish",
+  },
 };
 
 export default function RootLayout({
@@ -19,6 +68,10 @@ export default function RootLayout({
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&family=Parisienne&display=swap"
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
       </head>
       <body>{children}</body>

@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const contactItems = [
   {
     href: "tel:+541149914156",
@@ -93,7 +95,15 @@ export default function Contacto() {
           </div>
         </div>
 
-        <div className="min-h-75 bg-[url('/assets/photos/foto-4.webp')] bg-cover bg-center sm:min-h-100 lg:min-h-130" />
+        <div className="relative min-h-75 sm:min-h-100 lg:min-h-130">
+          <Image
+            src="/assets/photos/foto-4.webp"
+            alt="Quesos artesanales Quesos Festa listos para servir"
+            fill
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            className="object-cover"
+          />
+        </div>
       </div>
     </section>
   );
