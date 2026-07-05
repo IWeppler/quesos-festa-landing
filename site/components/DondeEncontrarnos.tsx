@@ -24,7 +24,7 @@ export default function DondeEncontrarnos({
 
   return (
     <section id="donde" className="bg-surface-page">
-      <div className="bg-festa-navy-800 py-16 text-white sm:py-20 lg:py-[84px]">
+      <div className="bg-festa-navy-800 py-16 text-white sm:py-20 lg:py-21">
         <div className="mx-auto max-w-300 px-5 text-center sm:px-8">
           <div
             data-reveal
@@ -68,7 +68,7 @@ export default function DondeEncontrarnos({
         </div>
       </div>
 
-      <div className="py-16 sm:py-20 lg:py-[84px] lg:pb-24">
+      <div className="py-16 sm:py-20 lg:py-21 lg:pb-24">
         <div className="mx-auto max-w-300 px-5 sm:px-8">
           <div data-reveal className="mb-9 text-center">
             <div className="font-script text-[28px] leading-none text-festa-green-800">
@@ -97,7 +97,7 @@ export default function DondeEncontrarnos({
                 <button
                   key={p.name}
                   onClick={() => setProv(p.name)}
-                  className={`mb-[-1px] cursor-pointer whitespace-nowrap border-0 border-b-2 bg-transparent px-5 py-3 font-sans text-[13px] font-medium uppercase tracking-[0.08em] transition-colors duration-150 ${
+                  className={`-mb-px cursor-pointer whitespace-nowrap border-0 border-b-2 bg-transparent px-5 py-3 font-sans text-[13px] font-medium uppercase tracking-[0.08em] transition-colors duration-150 ${
                     isActive
                       ? "border-rule-gold text-festa-navy-800"
                       : "border-transparent text-text-muted hover:text-festa-navy-800"
@@ -122,7 +122,7 @@ export default function DondeEncontrarnos({
                     key={s.name + s.addr}
                     className="flex flex-col gap-1 border-b border-border-subtle px-1 py-4 sm:flex-row sm:items-baseline sm:gap-4"
                   >
-                    <span className="hidden h-[7px] w-[7px] shrink-0 translate-y-[-2px] rounded-full bg-rule-gold sm:block" />
+                    <span className="hidden h-1.75 w-1.75 shrink-0 -translate-y-0.5 rounded-full bg-rule-gold sm:block" />
                     <span className="flex-1 font-serif text-[19px] font-semibold text-text-heading">
                       {s.name}
                     </span>

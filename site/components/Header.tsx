@@ -30,7 +30,7 @@ export default function Header() {
           </Link>
           <Link
             href="#contacto"
-            className="inline-flex rounded-full bg-festa-navy-800 px-4 py-2 font-sans text-[11px] font-medium uppercase tracking-[0.12em] text-white no-underline transition-colors duration-150 hover:bg-festa-navy-700 sm:px-[18px] sm:py-[9px] sm:text-xs sm:tracking-[0.14em]"
+            className="inline-flex rounded-full bg-festa-navy-800 px-4 py-2 font-sans text-[11px] font-medium uppercase tracking-[0.12em] text-white no-underline transition-colors duration-150 hover:bg-festa-navy-700 sm:px-4.5 sm:py-2.25 sm:text-xs sm:tracking-[0.14em]"
           >
             Contacto
           </Link>

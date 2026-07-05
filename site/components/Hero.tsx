@@ -9,7 +9,7 @@ export default function Hero() {
       }}
     >
       <div className="mx-auto w-full max-w-300 px-8 py-18">
-        <div className="max-w-155 text-white [animation:festaFade_640ms_var(--ease-out)_both]">
+        <div className="max-w-155 text-white animate-[festaFade_640ms_var(--ease-out)_both]">
           <div className="mb-5 inline-flex items-center gap-2.5">
             <span className="inline-flex h-4 w-6 overflow-hidden rounded-xs">
               <span className="flex-1 bg-italy-green" />

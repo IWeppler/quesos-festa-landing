@@ -47,6 +47,7 @@ export function ProductosClient({
               <th className="px-4 py-3">Nombre</th>
               <th className="px-4 py-3">Categoría</th>
               <th className="px-4 py-3">Envase / Peso</th>
+              <th className="px-4 py-3">Novedades</th>
               <th className="px-4 py-3">Orden</th>
               <th className="px-4 py-3"></th>
             </tr>
@@ -76,6 +77,15 @@ export function ProductosClient({
                 <td className="px-4 py-3 text-text-body">
                   {[p.envase, p.peso].filter(Boolean).join(" · ") || "—"}
                 </td>
+                <td className="px-4 py-3">
+                  {p.destacado ? (
+                    <span className="rounded-full bg-rule-gold/15 px-2.5 py-1 font-sans text-xs font-medium text-festa-navy-800">
+                      Sí
+                    </span>
+                  ) : (
+                    <span className="font-sans text-xs text-text-muted">No</span>
+                  )}
+                </td>
                 <td className="px-4 py-3 text-text-body">{p.orden}</td>
                 <td className="px-4 py-3">
                   <div className="flex justify-end gap-2">
@@ -97,7 +107,7 @@ export function ProductosClient({
             {productos.length === 0 ? (
               <tr>
                 <td
-                  colSpan={6}
+                  colSpan={7}
                   className="px-4 py-8 text-center text-text-muted"
                 >
                   No hay productos cargados todavía.
@@ -126,7 +136,7 @@ export function ProductosClient({
               <button
                 type="button"
                 onClick={() => setModal(null)}
-                className="rounded-md px-3 py-1.5 font-sans text-xs font-medium uppercase tracking-[0.06em] bg-red-500 hover:bg-red-600 text-white transition-colors duration-150 "
+                className="rounded-md bg-red-500 px-3 py-1.5 font-sans text-xs font-medium uppercase tracking-[0.06em] text-white transition-colors duration-150 hover:bg-red-600"
               >
                 Cerrar
               </button>

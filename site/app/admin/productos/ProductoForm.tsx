@@ -26,10 +26,7 @@ export function ProductoForm({
   const [state, formAction, pending] = useActionState(action, undefined);
 
   return (
-    <form
-      action={formAction}
-      className="flex max-w-140 flex-col gap-4 font-sans"
-    >
+    <form action={formAction} className="flex max-w-140 flex-col gap-4 font-sans">
       <Field label="Nombre">
         <input
           name="nombre"
@@ -108,7 +105,7 @@ export function ProductoForm({
         ) : null}
       </Field>
 
-      <div className="flex items-center gap-6">
+      <div className="flex flex-wrap items-center gap-6">
         <Field label="Orden" className="w-28">
           <input
             name="orden"
@@ -117,6 +114,15 @@ export function ProductoForm({
             className={inputClass}
           />
         </Field>
+        <label className="mt-6 inline-flex items-center gap-2 font-sans text-sm text-text-body">
+          <input
+            name="destacado"
+            type="checkbox"
+            defaultChecked={initial?.destacado ?? false}
+            className="h-4 w-4 rounded border-border-subtle accent-festa-navy-800"
+          />
+          Mostrar en novedades
+        </label>
       </div>
 
       {state?.error ? (

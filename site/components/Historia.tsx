@@ -9,11 +9,11 @@ export default function Historia() {
           <div className="mt-1.5 font-sans text-xs font-medium uppercase tracking-[0.32em] text-text-muted">
             Familia Festa · Desde 1989
           </div>
-          <div data-rule className="my-[18px] h-0.5 w-12 bg-rule-gold" />
-          <h2 className="m-0 mb-[22px] font-serif text-[32px] font-medium leading-[1.18] text-text-heading sm:text-[38px] lg:text-[42px]">
+          <div data-rule className="my-4.5 h-0.5 w-12 bg-rule-gold" />
+          <h2 className="m-0 mb-5.5 font-serif text-[32px] font-medium leading-[1.18] text-text-heading sm:text-[38px] lg:text-[42px]">
             El oficio de hacer queso, de una familia a tu mesa
           </h2>
-          <p className="m-0 mb-[18px] font-sans text-base leading-[1.75] text-text-body sm:text-[17px] sm:leading-[1.8]">
+          <p className="m-0 mb-4.5 font-sans text-base leading-[1.75] text-text-body sm:text-[17px] sm:leading-[1.8]">
             Empezamos en 1989 con una convicción sencilla: respetar la receta
             original italiana y no apurar lo que el tiempo hace mejor. Tres
             décadas y media después, seguimos hilando la mozzarella y armando
@@ -33,7 +33,7 @@ export default function Historia() {
               <span className="font-display text-xl leading-none tracking-[0.06em]">
                 Sin TACC
               </span>
-              <span className="my-1.25 h-px w-[34px] bg-rule-gold" />
+              <span className="my-1.25 h-px w-8.5 bg-rule-gold" />
               <span className="font-sans text-[9px] uppercase tracking-[0.14em] text-text-muted">
                 Libre de gluten
               </span>
@@ -49,7 +49,7 @@ export default function Historia() {
         </div>
         <div data-reveal className="relative mx-auto w-full max-w-105 lg:max-w-none">
           <div className="aspect-4/5 overflow-hidden rounded-2xl bg-[url('/assets/photos/foto-9.webp')] bg-cover bg-center shadow-festa-lg" />
-          <div className="absolute -bottom-4 left-4 rounded-[14px] bg-festa-navy-800 px-5 py-4 text-white shadow-festa-md sm:-bottom-[22px] sm:-left-[22px] sm:px-6 sm:py-5">
+          <div className="absolute -bottom-4 left-4 rounded-[14px] bg-festa-navy-800 px-5 py-4 text-white shadow-festa-md sm:-bottom-5.5 sm:-left-5.5 sm:px-6 sm:py-5">
             <div className="font-display text-[32px] leading-none tracking-[0.02em] sm:text-[40px]">
               35+
             </div>

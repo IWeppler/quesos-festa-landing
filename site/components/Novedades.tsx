@@ -6,7 +6,10 @@ export default async function Novedades() {
   if (productos.length === 0) return null;
 
   return (
-    <section id="novedades" className="relative overflow-hidden bg-festa-navy-900 text-white">
+    <section
+      id="novedades"
+      className="relative overflow-hidden bg-festa-navy-900 text-white"
+    >
       <div
         className="pointer-events-none absolute inset-0"
         style={{
@@ -38,10 +41,15 @@ export default async function Novedades() {
               <div
                 key={producto.nombre}
                 className={`grid grid-cols-1 items-center gap-10 lg:gap-16 ${
-                  imageFirst ? "lg:grid-cols-[1.15fr_1fr]" : "lg:grid-cols-[1fr_1.15fr]"
+                  imageFirst
+                    ? "lg:grid-cols-[1.15fr_1fr]"
+                    : "lg:grid-cols-[1fr_1.15fr]"
                 }`}
               >
-                <div data-reveal className={imageFirst ? "lg:order-2" : undefined}>
+                <div
+                  data-reveal
+                  className={imageFirst ? "lg:order-2" : undefined}
+                >
                   {producto.categoriaNombre ? (
                     <div className="font-sans text-[11px] font-medium uppercase tracking-[0.2em] text-white/58">
                       {producto.categoriaNombre}
@@ -59,11 +67,15 @@ export default async function Novedades() {
                   {producto.presentaciones.length > 0 ? (
                     <div className="mt-7 flex flex-wrap items-center gap-3">
                       <span className="font-sans text-[10px] uppercase tracking-[0.2em] text-white/50">
-                        {producto.presentaciones.length > 1 ? "Presentaciones" : "Presentación"}
+                        {producto.presentaciones.length > 1
+                          ? "Presentaciones"
+                          : "Presentación"}
                       </span>
                       {producto.presentaciones.map((pres, idx) => (
                         <span key={pres} className="flex items-center gap-3">
-                          {idx > 0 ? <span className="h-1 w-1 rounded-full bg-white/35" /> : null}
+                          {idx > 0 ? (
+                            <span className="h-1 w-1 rounded-full bg-white/35" />
+                          ) : null}
                           <span className="font-serif text-[17px] font-semibold text-rule-gold">
                             {pres}
                           </span>
@@ -79,7 +91,7 @@ export default async function Novedades() {
                     imageFirst ? "lg:order-1" : ""
                   }`}
                 >
-                  <div className="aspect-[16/11] bg-festa-navy-800">
+                  <div className="aspect-16/11 bg-festa-navy-800">
                     {producto.photo ? (
                       // eslint-disable-next-line @next/next/no-img-element
                       <img
