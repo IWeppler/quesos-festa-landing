@@ -24,10 +24,10 @@ export default function Catalogo({ categories }: { categories: Category[] }) {
           <h2 className="m-0 mt-3 font-serif text-[34px] font-medium leading-[1.16] text-text-heading sm:text-[42px]">
             Quesos frescos artesanales
           </h2>
-          <div data-rule className="mx-auto mt-[18px] h-0.5 w-12 bg-rule-gold" />
+          <div data-rule className="mx-auto mt-4.5 h-0.5 w-12 bg-rule-gold" />
         </div>
 
-        <div data-reveal className="mb-[22px] flex justify-center">
+        <div data-reveal className="mb-5.5 flex justify-center">
           <div className="inline-flex max-w-full items-center gap-3 rounded-full border border-border-subtle bg-surface-sunken px-5 py-2.25">
             <span className="inline-flex h-2 w-2 shrink-0 rounded-full bg-success" />
             <span className="font-sans text-[12.5px] uppercase tracking-[0.12em] text-text-body">
@@ -36,7 +36,7 @@ export default function Catalogo({ categories }: { categories: Category[] }) {
           </div>
         </div>
 
-        <div className="flex flex-col gap-14 lg:gap-[72px]">
+        <div className="flex flex-col gap-14 lg:gap-18">
           {categories.map((cat, ci) => {
             const hovering =
               hover && hover.cat === ci ? cat.items[hover.item] : null;
@@ -94,7 +94,7 @@ export default function Catalogo({ categories }: { categories: Category[] }) {
                     return (
                       <div
                         key={item.name}
-                        className={`-mx-3 flex cursor-pointer items-baseline gap-4 rounded-[10px] border-b border-border-subtle px-3 py-4 transition-colors duration-300 sm:-mx-4 sm:gap-[18px] sm:px-4 sm:py-5 ${
+                        className={`-mx-3 flex cursor-pointer items-baseline gap-4 rounded-[10px] border-b border-border-subtle px-3 py-4 transition-colors duration-300 sm:-mx-4 sm:gap-4.5 sm:px-4 sm:py-5 ${
                           active ? "bg-surface-sunken" : "bg-transparent"
                         }`}
                         onMouseEnter={() => setHover({ cat: ci, item: ii })}
@@ -115,7 +115,7 @@ export default function Catalogo({ categories }: { categories: Category[] }) {
                         <div className="min-w-0 flex-1">
                           <div className="flex flex-col gap-1 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4">
                             <h4
-                              className={`m-0 font-serif text-[22px] leading-[1.1] text-text-heading transition-colors duration-300 sm:text-[23px] ${
+                              className={`m-0 font-serif text-5.5 leading-[1.1] text-text-heading transition-colors duration-300 sm:text-[23px] ${
                                 active ? "font-bold" : "font-semibold"
                               }`}
                               style={{ color: active ? item.color : undefined }}

@@ -1,9 +1,10 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useState } from "react";
 import Link from "next/link";
 import type { CategoriaOption, AdminProducto } from "@/lib/admin/queries";
 import type { ProductoFormState } from "./actions";
+import { MAX_UPLOAD_MB, MAX_UPLOAD_BYTES } from "@/lib/upload-limits";
 
 type Action = (
   state: ProductoFormState,
@@ -24,6 +25,23 @@ export function ProductoForm({
   onCancel?: () => void;
 }) {
   const [state, formAction, pending] = useActionState(action, undefined);
+  const [fileError, setFileError] = useState<string | null>(null);
+
+  function handleFileChange(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (!file) {
+      setFileError(null);
+      return;
+    }
+    if (file.size > MAX_UPLOAD_BYTES) {
+      setFileError(
+        `La imagen pesa demasiado. Probá con una de menos de ${MAX_UPLOAD_MB} MB, idealmente en formato WebP.`,
+      );
+      e.target.value = "";
+      return;
+    }
+    setFileError(null);
+  }
 
   return (
     <form action={formAction} className="flex max-w-140 flex-col gap-4 font-sans">
@@ -96,12 +114,16 @@ export function ProductoForm({
           name="imagen"
           type="file"
           accept="image/*"
+          onChange={handleFileChange}
           className={inputClass}
         />
-        {currentImageUrl ? (
-          <p className="mt-1 font-sans text-xs text-text-muted">
-            Subí un archivo solo si querés reemplazar la imagen actual.
-          </p>
+        <p className="mt-1 font-sans text-xs text-text-muted">
+          {currentImageUrl
+            ? `Subí un archivo solo si querés reemplazar la imagen actual. Máximo ${MAX_UPLOAD_MB} MB.`
+            : `Máximo ${MAX_UPLOAD_MB} MB.`}
+        </p>
+        {fileError ? (
+          <p className="mt-1 font-sans text-xs text-danger">{fileError}</p>
         ) : null}
       </Field>
 
@@ -132,7 +154,7 @@ export function ProductoForm({
       <div className="flex gap-3 pt-2">
         <button
           type="submit"
-          disabled={pending}
+          disabled={pending || !!fileError}
           className="rounded-md bg-festa-navy-800 px-4 py-2.5 font-sans text-sm font-medium uppercase tracking-[0.08em] text-white transition-colors duration-150 hover:bg-festa-navy-700 disabled:opacity-60"
         >
           {pending ? "Guardando..." : "Guardar"}

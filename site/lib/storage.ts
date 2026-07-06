@@ -2,8 +2,16 @@ import "server-only";
 
 import { supabase } from "@/lib/supabase";
 import { createAdminClient } from "@/lib/supabase/admin";
+import { MAX_UPLOAD_MB, MAX_UPLOAD_BYTES } from "@/lib/upload-limits";
 
 const BUCKET = "media";
+
+export class FileTooLargeError extends Error {
+  constructor() {
+    super(`El archivo supera el límite de ${MAX_UPLOAD_MB} MB.`);
+    this.name = "FileTooLargeError";
+  }
+}
 
 export function publicUrl(path: string | null): string | null {
   if (!path) return null;
@@ -11,6 +19,8 @@ export function publicUrl(path: string | null): string | null {
 }
 
 export async function uploadImage(folder: string, file: File): Promise<string> {
+  if (file.size > MAX_UPLOAD_BYTES) throw new FileTooLargeError();
+
   const ext = file.name.includes(".") ? file.name.split(".").pop() : "jpg";
   const path = `${folder}/${crypto.randomUUID()}.${ext}`;
 
@@ -30,8 +40,21 @@ export async function deleteImage(path: string | null) {
 }
 
 export function storageErrorMessage(error: unknown): string {
+  if (error instanceof FileTooLargeError) {
+    return `La imagen es demasiado pesada. Probá con una de menos de ${MAX_UPLOAD_MB} MB, idealmente en formato WebP.`;
+  }
+
   const message = error instanceof Error ? error.message : String(error);
   const lower = message.toLowerCase();
+
+  if (
+    lower.includes("exceeded the maximum allowed size") ||
+    lower.includes("payload too large") ||
+    lower.includes("entity too large") ||
+    lower.includes("maximum size")
+  ) {
+    return `La imagen es demasiado pesada. Probá con una de menos de ${MAX_UPLOAD_MB} MB, idealmente en formato WebP.`;
+  }
 
   if (
     lower.includes("row-level security") ||
@@ -42,5 +65,5 @@ export function storageErrorMessage(error: unknown): string {
     return "No se pudo subir la imagen porque faltan permisos de Storage en Supabase.";
   }
 
-  return "No se pudo subir la imagen. Intentá de nuevo.";
+  return `No se pudo subir la imagen. ${message}`;
 }
