@@ -14,9 +14,6 @@ export default function Header() {
           <span className="pl-[0.22em] font-display text-[22px] uppercase leading-none tracking-[0.22em] sm:text-[26px]">
             Festa
           </span>
-          <span className="font-script text-base leading-none text-festa-green-800 sm:text-lg">
-            Familia Festa
-          </span>
         </Link>
         <nav className="flex shrink-0 items-center gap-4 md:gap-7.5">
           <Link href="#historia" className={`${navLinkClass} hidden md:inline-flex`}>

@@ -242,3 +242,58 @@
   font-weight: 700;
 }
 
+/* ===========================================================================
+   Mapa de comercios (Leaflet) — overrides para usar los tokens del design
+   system en vez de los estilos default de Leaflet.
+   =========================================================================== */
+
+.qf-map .leaflet-popup-content-wrapper {
+  background: var(--surface-card);
+  color: var(--text-body);
+  border-radius: 10px;
+  box-shadow: var(--shadow-lg);
+}
+
+.qf-map .leaflet-popup-content {
+  margin: 12px 14px;
+}
+
+.qf-map .leaflet-popup-tip {
+  background: var(--surface-card);
+}
+
+.qf-map .leaflet-control-attribution {
+  font-family: var(--font-sans);
+  font-size: 10px;
+}
+
+.qf-popup-title {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--text-heading);
+}
+
+.qf-popup-addr {
+  display: block;
+  margin-top: 3px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.qf-map-pin {
+  position: relative;
+  top: 4px;
+  width: 20px;
+  height: 20px;
+  margin: 0 auto;
+  background: var(--rule-gold);
+  border: 2px solid var(--festa-navy-800);
+  border-radius: 999px 999px 999px 0;
+  transform: rotate(-45deg);
+  box-shadow: var(--shadow-md);
+}
+

@@ -15,7 +15,13 @@ export type Category = {
   items: Product[];
 };
 
-export type Store = { name: string; addr: string; mapsUrl?: string };
+export type Store = {
+  name: string;
+  addr: string;
+  mapsUrl?: string;
+  lat: number | null;
+  lng: number | null;
+};
 export type StoreGroup = { region: string; stores: Store[] };
 export type Province = { name: string; groups: StoreGroup[] };
 export type Chain = { name: string; image: string };

@@ -36,11 +36,6 @@ export default function Hero() {
       <div className="relative z-10 mx-auto w-full max-w-300 px-6 py-14 md:px-8 md:py-18">
         <div className="max-w-155 text-white animate-[festaFade_640ms_var(--ease-out)_both]">
           <div className="mb-4 inline-flex items-center gap-2.5 md:mb-5">
-            <span className="inline-flex h-4 w-6 overflow-hidden rounded-xs">
-              <span className="flex-1 bg-italy-green" />
-              <span className="flex-1 bg-white" />
-              <span className="flex-1 bg-italy-red" />
-            </span>
             <span className="font-sans text-[10px] font-medium uppercase tracking-[0.28em] text-white/78 md:text-[11px] md:tracking-[0.32em]">
               Receta original italiana · Desde 1989
             </span>

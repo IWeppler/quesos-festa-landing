@@ -118,6 +118,8 @@ type PuntoVentaRow = {
   region: string | null;
   maps_url: string | null;
   imagen_url: string | null;
+  lat: number | null;
+  lng: number | null;
 };
 
 export async function getPuntosVenta(): Promise<{
@@ -126,7 +128,7 @@ export async function getPuntosVenta(): Promise<{
 }> {
   const { data, error } = await supabase
     .from("puntos_venta")
-    .select("nombre_comercio, tipo, direccion, provincia, region, maps_url, imagen_url")
+    .select("nombre_comercio, tipo, direccion, provincia, region, maps_url, imagen_url, lat, lng")
     .order("provincia")
     .order("region")
     .order("nombre_comercio")
@@ -155,6 +157,8 @@ export async function getPuntosVenta(): Promise<{
       name: r.nombre_comercio,
       addr: r.direccion ?? "",
       mapsUrl: r.maps_url ?? undefined,
+      lat: r.lat,
+      lng: r.lng,
     });
   }
 

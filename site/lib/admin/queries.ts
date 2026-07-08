@@ -24,6 +24,8 @@ export type AdminPuntoVenta = {
   provincia: string | null;
   region: string | null;
   imagen_url: string | null;
+  lat: number | null;
+  lng: number | null;
 };
 
 export async function listCategoriasOptions(): Promise<CategoriaOption[]> {
@@ -64,7 +66,7 @@ export async function getAdminProducto(id: number): Promise<AdminProducto | null
 export async function listAdminPuntosVenta(): Promise<AdminPuntoVenta[]> {
   const { data, error } = await supabase
     .from("puntos_venta")
-    .select("id, nombre_comercio, tipo, direccion, provincia, region, imagen_url")
+    .select("id, nombre_comercio, tipo, direccion, provincia, region, imagen_url, lat, lng")
     .order("tipo")
     .order("nombre_comercio")
     .returns<AdminPuntoVenta[]>();
@@ -75,7 +77,7 @@ export async function listAdminPuntosVenta(): Promise<AdminPuntoVenta[]> {
 export async function getAdminPuntoVenta(id: number): Promise<AdminPuntoVenta | null> {
   const { data, error } = await supabase
     .from("puntos_venta")
-    .select("id, nombre_comercio, tipo, direccion, provincia, region, imagen_url")
+    .select("id, nombre_comercio, tipo, direccion, provincia, region, imagen_url, lat, lng")
     .eq("id", id)
     .returns<AdminPuntoVenta[]>()
     .single();

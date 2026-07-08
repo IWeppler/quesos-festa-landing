@@ -1,9 +1,9 @@
 "use client";
 
-import { useActionState, useState } from "react";
+import { useActionState, useRef, useState, useTransition } from "react";
 import Link from "next/link";
 import type { AdminPuntoVenta } from "@/lib/admin/queries";
-import type { PuntoVentaFormState } from "./actions";
+import { geocodePuntoVentaDireccion, type PuntoVentaFormState } from "./actions";
 
 type Action = (state: PuntoVentaFormState, formData: FormData) => Promise<PuntoVentaFormState>;
 
@@ -18,9 +18,39 @@ export function PuntoVentaForm({
 }) {
   const [state, formAction, pending] = useActionState(action, undefined);
   const [tipo, setTipo] = useState<"cadena" | "barrio">(initial?.tipo ?? "barrio");
+  const formRef = useRef<HTMLFormElement>(null);
+  const [lat, setLat] = useState(initial?.lat != null ? String(initial.lat) : "");
+  const [lng, setLng] = useState(initial?.lng != null ? String(initial.lng) : "");
+  const [detectMessage, setDetectMessage] = useState<{ text: string; isError: boolean } | null>(
+    null,
+  );
+  const [isDetecting, startDetecting] = useTransition();
+
+  function handleDetectarCoordenadas() {
+    const formEl = formRef.current;
+    if (!formEl) return;
+
+    const formData = new FormData(formEl);
+    const direccion = String(formData.get("direccion") ?? "").trim();
+    const provincia = String(formData.get("provincia") ?? "").trim() || null;
+
+    startDetecting(async () => {
+      const resultado = await geocodePuntoVentaDireccion(direccion, provincia);
+      if ("error" in resultado) {
+        setDetectMessage({ text: resultado.error, isError: true });
+        return;
+      }
+      setLat(String(resultado.lat));
+      setLng(String(resultado.lng));
+      setDetectMessage({
+        text: `Coordenadas detectadas: ${resultado.lat}, ${resultado.lng}`,
+        isError: false,
+      });
+    });
+  }
 
   return (
-    <form action={formAction} className="flex max-w-140 flex-col gap-4 font-sans">
+    <form ref={formRef} action={formAction} className="flex max-w-140 flex-col gap-4 font-sans">
       <Field label="Nombre del comercio">
         <input
           name="nombre_comercio"
@@ -72,6 +102,44 @@ export function PuntoVentaForm({
               />
             </Field>
           </div>
+
+          <div className="flex items-end gap-3">
+            <Field label="Latitud" className="flex-1">
+              <input
+                name="lat"
+                type="number"
+                step="any"
+                value={lat}
+                onChange={(e) => setLat(e.target.value)}
+                className={inputClass}
+              />
+            </Field>
+            <Field label="Longitud" className="flex-1">
+              <input
+                name="lng"
+                type="number"
+                step="any"
+                value={lng}
+                onChange={(e) => setLng(e.target.value)}
+                className={inputClass}
+              />
+            </Field>
+            <button
+              type="button"
+              onClick={handleDetectarCoordenadas}
+              disabled={isDetecting}
+              className="h-10.5 shrink-0 rounded-md border border-border-subtle px-3 font-sans text-sm font-medium text-text-body transition-colors duration-150 hover:bg-surface-sunken disabled:opacity-60"
+            >
+              {isDetecting ? "Detectando..." : "Detectar coordenadas"}
+            </button>
+          </div>
+          {detectMessage ? (
+            <p
+              className={`font-sans text-xs ${detectMessage.isError ? "text-danger" : "text-text-muted"}`}
+            >
+              {detectMessage.text}
+            </p>
+          ) : null}
         </>
       ) : null}
 

@@ -15,20 +15,13 @@ export default function Footer() {
             <span className="pl-[0.22em] font-display text-[28px] uppercase leading-none tracking-[0.22em] text-white sm:text-[30px]">
               Festa
             </span>
-            <span className="font-script text-xl leading-none text-white/75">
-              Familia Festa
-            </span>
           </div>
           <p className="m-0 mt-4 max-w-80 font-sans text-sm leading-[1.7]">
             Quesos frescos artesanales desde 1989. Receta original italiana,
             elaboración a mano, enteramente sin TACC.
           </p>
           <div className="mt-4 inline-flex items-center gap-2 font-sans text-xs uppercase tracking-[0.2em] text-white/60">
-            <span className="inline-flex h-4 w-5 overflow-hidden rounded-xs">
-              <span className="flex-1 bg-italy-green" />
-              <span className="flex-1 bg-white" />
-              <span className="flex-1 bg-italy-red" />
-            </span>
+            
             Industria Argentina
           </div>
         </div>
