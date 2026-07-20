@@ -13,6 +13,7 @@ import {
 type ModalState =
   | { type: "new" }
   | { type: "edit"; puntoVenta: AdminPuntoVenta }
+  | { type: "upload_csv" }
   | null;
 
 function formatLocation(pv: AdminPuntoVenta) {
@@ -38,13 +39,22 @@ export function PuntosVentaClient({
         <h1 className="m-0 font-sans text-xl font-semibold text-text-heading">
           Puntos de venta
         </h1>
-        <button
-          type="button"
-          onClick={() => setModal({ type: "new" })}
-          className="rounded-md bg-festa-navy-800 px-4 py-2 font-sans text-sm font-medium uppercase tracking-[0.08em] text-white transition-colors duration-150 hover:bg-festa-navy-700"
-        >
-          Nuevo punto de venta
-        </button>
+        <div className="flex items-center gap-3">
+          <button
+            type="button"
+            onClick={() => setModal({ type: "upload_csv" })}
+            className="rounded-md border border-festa-navy-800 px-4 py-2 font-sans text-sm font-medium uppercase tracking-[0.08em] text-festa-navy-800 transition-colors duration-150 hover:bg-festa-navy-50"
+          >
+            Subir CSV
+          </button>
+          <button
+            type="button"
+            onClick={() => setModal({ type: "new" })}
+            className="rounded-md bg-festa-navy-800 px-4 py-2 font-sans text-sm font-medium uppercase tracking-[0.08em] text-white transition-colors duration-150 hover:bg-festa-navy-700 cursor-pointer"
+          >
+            Nuevo punto de venta
+          </button>
+        </div>
       </div>
 
       <div className="overflow-x-auto rounded-xl border border-border-subtle bg-surface-card">
@@ -122,7 +132,9 @@ export function PuntosVentaClient({
               >
                 {modal.type === "new"
                   ? "Nuevo punto de venta"
-                  : "Editar punto de venta"}
+                  : modal.type === "edit"
+                    ? "Editar punto de venta"
+                    : "Subir ubicaciones por CSV"}
               </h2>
               <button
                 type="button"
@@ -138,12 +150,66 @@ export function PuntosVentaClient({
                 action={createPuntoVenta}
                 onCancel={() => setModal(null)}
               />
-            ) : (
+            ) : modal.type === "edit" ? (
               <PuntoVentaForm
                 action={updatePuntoVenta.bind(null, modal.puntoVenta.id)}
                 initial={modal.puntoVenta}
                 onCancel={() => setModal(null)}
               />
+            ) : (
+              /* FORMULARIO DE SUBIDA DE CSV */
+              <form
+                // action={uploadCsvAction} // TODO: Aquí debes colocar tu Server Action para procesar el archivo
+                className="flex flex-col gap-5 mt-2"
+              >
+                <div className="rounded-lg bg-blue-50 p-4 text-sm text-blue-900 border border-blue-100">
+                  <p className="mb-2 font-semibold">Formato requerido:</p>
+                  <p className="mb-2">
+                    El archivo debe estar separado por punto y coma (<b>;</b>) y
+                    contener la siguiente cabecera exacta en la primera fila:
+                  </p>
+                  <code className="block bg-white p-2 rounded border border-blue-200 text-xs font-mono mb-2">
+                    nombre;tipo;direccion;provincia;region;latitud;longitud
+                  </code>
+                  <p className="text-xs opacity-80">
+                    * Las columnas latitud y longitud son opcionales pero deben
+                    figurar en la cabecera.
+                  </p>
+                </div>
+
+                <div className="flex flex-col gap-2">
+                  <label
+                    htmlFor="csv_file"
+                    className="text-sm font-medium text-text-heading"
+                  >
+                    Archivo CSV
+                  </label>
+                  <input
+                    type="file"
+                    id="csv_file"
+                    name="file"
+                    accept=".csv"
+                    required
+                    className="block w-full text-sm text-text-body border border-border-subtle rounded-md cursor-pointer focus:outline-none file:mr-4 file:py-2 file:px-4 file:rounded-l-md file:border-0 file:text-sm file:font-medium file:bg-surface-sunken file:text-text-heading hover:file:bg-border-subtle/50"
+                  />
+                </div>
+
+                <div className="mt-2 flex justify-end gap-3 pt-4 border-t border-border-subtle">
+                  <button
+                    type="button"
+                    onClick={() => setModal(null)}
+                    className="rounded-md border border-border-subtle px-4 py-2 font-sans text-sm font-medium text-text-body transition-colors hover:bg-surface-sunken"
+                  >
+                    Cancelar
+                  </button>
+                  <button
+                    type="submit"
+                    className="rounded-md bg-festa-navy-800 px-4 py-2 font-sans text-sm font-medium text-white transition-colors hover:bg-festa-navy-700"
+                  >
+                    Procesar e importar
+                  </button>
+                </div>
+              </form>
             )}
           </div>
         </div>

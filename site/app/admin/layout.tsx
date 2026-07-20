@@ -40,6 +40,12 @@ export default async function AdminLayout({ children }: { children: React.ReactN
             >
               Puntos de venta
             </Link>
+            <Link
+              href="/admin/consultas"
+              className="font-sans text-sm text-text-body transition-colors duration-150 hover:text-festa-navy-800"
+            >
+              Consultas
+            </Link>
           </nav>
         </div>
         <div className="flex items-center gap-4">
@@ -54,7 +60,7 @@ export default async function AdminLayout({ children }: { children: React.ReactN
           </form>
         </div>
       </header>
-      <main className="px-6 py-8">{children}</main>
+      <main className="px-6 py-8 n max-w-[1600px] max-auto">{children}</main>
     </div>
   );
 }

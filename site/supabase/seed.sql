@@ -18,10 +18,7 @@ insert into public.categorias (nombre, script, blurb, imagen_url, color_acento, 
  'categorias/foto-2.jpg', 'burrata', 1),
 ('Cremas y untables', 'Para untar y cocinar',
  'Texturas sedosas para la mesa dulce y la cocina profesional, incluida la línea Jiro Premium.',
- 'categorias/foto-11.jpg', 'mascarpone', 2),
-('Quesos blancos', 'Frescura de todos los días',
- 'La línea liviana y natural, también en formatos de 3 kg para food service.',
- 'categorias/foto-6.jpg', 'quark', 3);
+ 'categorias/foto-11.jpg', 'mascarpone', 2);
 
 -- ---------------------------------------------------------
 -- PRODUCTOS — Especialidades italianas
@@ -67,21 +64,16 @@ insert into public.productos (categoria_id, nombre, descripcion, envase, peso, i
  'Manga', '1 kg', 'productos/foto-9.jpg', 'crema', 3),
 ((select id from public.categorias where nombre = 'Cremas y untables'),
  'Cottage', 'Queso fresco granulado, liviano y natural.',
- 'Pote / Balde', '250 g · 2,5 kg', 'productos/foto-5.jpg', 'crema', 4);
-
--- ---------------------------------------------------------
--- PRODUCTOS — Quesos blancos
--- ---------------------------------------------------------
-insert into public.productos (categoria_id, nombre, descripcion, envase, peso, imagen_url, color_acento, orden) values
-((select id from public.categorias where nombre = 'Quesos blancos'),
+ 'Pote / Balde', '250 g · 2,5 kg', 'productos/foto-5.jpg', 'crema', 4),
+((select id from public.categorias where nombre = 'Cremas y untables'),
  'Queso Descremado', 'Untable liviano: la frescura de todos los días.',
- 'Pote / Bolsa', '290 g · 3 kg', 'productos/foto-8.jpg', 'descremado', 1),
-((select id from public.categorias where nombre = 'Quesos blancos'),
+ 'Pote / Bolsa', '290 g · 3 kg', 'productos/foto-8.jpg', 'descremado', 5),
+((select id from public.categorias where nombre = 'Cremas y untables'),
  'Quark', 'Queso blanco magro de tradición europea, suave y neutro.',
- 'Bolsa', '3 kg', null, 'quark', 2),
-((select id from public.categorias where nombre = 'Quesos blancos'),
+ 'Bolsa', '3 kg', null, 'quark', 6),
+((select id from public.categorias where nombre = 'Cremas y untables'),
  'Saborizado', 'Queso blanco saborizado, para propuestas de cocina y gastronomía.',
- 'Bolsa', '3 kg', 'productos/foto-6.jpg', 'quark', 3);
+ 'Bolsa', '3 kg', 'productos/foto-6.jpg', 'quark', 7);
 
 -- ---------------------------------------------------------
 -- PUNTOS DE VENTA — comercios de barrio (Buenos Aires)

@@ -93,9 +93,9 @@ export function PuntoVentaForm({
                 className={inputClass}
               />
             </Field>
-            <Field label="Región" className="flex-1">
+            <Field label="Ubicación" className="flex-1">
               <input
-                name="region"
+                name="ubicacion"
                 type="text"
                 defaultValue={initial?.region ?? ""}
                 className={inputClass}
@@ -149,7 +149,7 @@ export function PuntoVentaForm({
         <button
           type="submit"
           disabled={pending}
-          className="rounded-md bg-festa-navy-800 px-4 py-2.5 font-sans text-sm font-medium uppercase tracking-[0.08em] text-white transition-colors duration-150 hover:bg-festa-navy-700 disabled:opacity-60"
+          className="rounded-md bg-festa-navy-800 px-4 py-2.5 font-sans text-sm font-medium uppercase tracking-[0.08em] text-white transition-colors duration-150 hover:bg-festa-navy-700 disabled:opacity-60 "
         >
           {pending ? "Guardando..." : "Guardar"}
         </button>

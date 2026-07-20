@@ -1,8 +1,9 @@
 import Image from "next/image";
+import { ConsultaMayoristaForm } from "./ConsultaMayoristaForm";
 
 const contactItems = [
   {
-    href: "tel:+541149914156",
+    href: "https://wa.me/541149914156",
     label: "Ventas mayoristas",
     value: "11 4991 4156",
     icon: (
@@ -37,7 +38,7 @@ const contactItems = [
 export default function Contacto() {
   return (
     <section id="contacto" className="bg-festa-green-800 text-white">
-      <div className="mx-auto grid max-w-300 px-5 sm:px-8 lg:grid-cols-2 lg:items-stretch">
+      <div className="mx-auto grid max-w-350 px-5 sm:px-8 lg:grid-cols-2 lg:items-stretch">
         <div className="flex flex-col justify-center py-16 sm:py-20 lg:py-[92px] lg:pr-14">
           <div
             data-reveal
@@ -92,6 +93,14 @@ export default function Contacto() {
                 </span>
               </a>
             ))}
+          </div>
+
+          <div data-reveal className="mt-10 border-t border-white/15 pt-8">
+            <p className="m-0 mb-4 font-sans text-sm leading-relaxed text-white/85">
+              ¿Preferís dejarnos tus datos? Completá el formulario y te
+              contactamos nosotros.
+            </p>
+            <ConsultaMayoristaForm />
           </div>
         </div>
 

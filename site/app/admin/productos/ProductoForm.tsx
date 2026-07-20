@@ -155,7 +155,7 @@ export function ProductoForm({
         <button
           type="submit"
           disabled={pending || !!fileError}
-          className="rounded-md bg-festa-navy-800 px-4 py-2.5 font-sans text-sm font-medium uppercase tracking-[0.08em] text-white transition-colors duration-150 hover:bg-festa-navy-700 disabled:opacity-60"
+          className="rounded-md bg-festa-navy-800 px-4 py-2.5 font-sans text-sm font-medium uppercase tracking-[0.08em] text-white transition-colors duration-150 hover:bg-festa-navy-700 disabled:opacity-60 cursor-pointer"
         >
           {pending ? "Guardando..." : "Guardar"}
         </button>

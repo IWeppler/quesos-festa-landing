@@ -12,6 +12,9 @@ export async function createAdminClient() {
   const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
   if (!serviceRoleKey) {
+    console.error(
+      "SUPABASE_SERVICE_ROLE_KEY no configurada: usando el cliente autenticado por cookies, sujeto a RLS. Los inserts anónimos (ej. formulario de contacto) van a fallar por permisos.",
+    );
     return createServerClient();
   }
 

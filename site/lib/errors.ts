@@ -4,6 +4,7 @@ const CHECK_MESSAGES: Record<string, string> = {
   productos_color_acento_check: "El color elegido no es válido.",
   categorias_color_acento_check: "El color elegido no es válido.",
   puntos_venta_tipo_check: 'El tipo debe ser "cadena" o "barrio".',
+  consultas_tipo_comercio_check: "El tipo de comercio elegido no es válido.",
 };
 
 const FALLBACK = "Ocurrió un error. Intentá de nuevo.";
@@ -25,6 +26,8 @@ export function friendlyError(error: PostgrestError | null): string {
       );
       return constraint ? CHECK_MESSAGES[constraint] : "Uno de los valores ingresados no es válido.";
     }
+    case "42501":
+      return "No pudimos guardar tu consulta por un problema de configuración del servidor. Escribinos directamente a ventas@quesosfesta.com.ar mientras lo solucionamos.";
     default:
       return FALLBACK;
   }
