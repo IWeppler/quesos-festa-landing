@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import type { AdminPuntoVenta } from "@/lib/admin/queries";
 import { DeleteButton } from "@/components/admin/DeleteButton";
 import { PuntoVentaForm } from "./PuntoVentaForm";
@@ -26,12 +26,93 @@ function formatProvince(pv: AdminPuntoVenta) {
   return pv.provincia || "—";
 }
 
+type SortKey = "nombre_comercio" | "tipo" | "provincia";
+type SortDir = "asc" | "desc";
+
+function SortIcon({ direction }: { direction: SortDir | null }) {
+  return (
+    <svg
+      viewBox="0 0 20 20"
+      aria-hidden="true"
+      className={`h-3.5 w-3.5 transition-transform duration-150 ${
+        direction === "desc" ? "rotate-180" : ""
+      } ${direction ? "text-festa-navy-800" : "text-text-muted/50"}`}
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.75}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M5 12.5 10 7.5 15 12.5" />
+    </svg>
+  );
+}
+
+function SortableHeader({
+  label,
+  sortKey,
+  activeKey,
+  direction,
+  onSort,
+}: {
+  label: string;
+  sortKey: SortKey;
+  activeKey: SortKey | null;
+  direction: SortDir;
+  onSort: (key: SortKey) => void;
+}) {
+  return (
+    <th className="px-4 py-3">
+      <button
+        type="button"
+        onClick={() => onSort(sortKey)}
+        className="flex cursor-pointer items-center gap-1 font-sans text-xs font-medium uppercase tracking-[0.06em] text-text-muted hover:text-text-heading"
+      >
+        {label}
+        <SortIcon direction={activeKey === sortKey ? direction : null} />
+      </button>
+    </th>
+  );
+}
+
 export function PuntosVentaClient({
   puntosVenta,
 }: {
   puntosVenta: AdminPuntoVenta[];
 }) {
   const [modal, setModal] = useState<ModalState>(null);
+  const [search, setSearch] = useState("");
+  const [sortKey, setSortKey] = useState<SortKey | null>(null);
+  const [sortDir, setSortDir] = useState<SortDir>("asc");
+
+  function handleSort(key: SortKey) {
+    if (key === sortKey) {
+      setSortDir((dir) => (dir === "asc" ? "desc" : "asc"));
+    } else {
+      setSortKey(key);
+      setSortDir("asc");
+    }
+  }
+
+  const visiblePuntosVenta = useMemo(() => {
+    const term = search.trim().toLowerCase();
+    const filtered = term
+      ? puntosVenta.filter((pv) =>
+          [pv.nombre_comercio, pv.tipo, pv.provincia]
+            .filter(Boolean)
+            .some((field) => field!.toLowerCase().includes(term)),
+        )
+      : puntosVenta;
+
+    if (!sortKey) return filtered;
+
+    const sorted = [...filtered].sort((a, b) => {
+      const aValue = a[sortKey] ?? "";
+      const bValue = b[sortKey] ?? "";
+      return aValue.localeCompare(bValue, "es", { sensitivity: "base" });
+    });
+    return sortDir === "asc" ? sorted : sorted.reverse();
+  }, [puntosVenta, search, sortKey, sortDir]);
 
   return (
     <div className="mx-auto flex max-w-7xl flex-col gap-5">
@@ -57,19 +138,49 @@ export function PuntosVentaClient({
         </div>
       </div>
 
+      <div className="flex items-center gap-3">
+        <input
+          type="search"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          placeholder="Buscar por nombre, tipo o provincia..."
+          className="w-full max-w-sm rounded-md border border-border-subtle bg-surface-card px-3 py-2 font-sans text-sm text-text-body placeholder:text-text-muted focus:border-festa-navy-800 focus:outline-none"
+        />
+      </div>
+
       <div className="overflow-x-auto rounded-xl border border-border-subtle bg-surface-card">
         <table className="w-full border-collapse font-sans text-sm">
           <thead>
-            <tr className="border-b border-border-subtle text-left text-xs font-medium uppercase tracking-[0.06em] text-text-muted">
-              <th className="px-4 py-3">Nombre</th>
-              <th className="px-4 py-3">Tipo</th>
-              <th className="px-4 py-3">Provincia</th>
-              <th className="px-4 py-3">Ubicación</th>
+            <tr className="border-b border-border-subtle text-left">
+              <SortableHeader
+                label="Nombre"
+                sortKey="nombre_comercio"
+                activeKey={sortKey}
+                direction={sortDir}
+                onSort={handleSort}
+              />
+              <SortableHeader
+                label="Tipo"
+                sortKey="tipo"
+                activeKey={sortKey}
+                direction={sortDir}
+                onSort={handleSort}
+              />
+              <SortableHeader
+                label="Provincia"
+                sortKey="provincia"
+                activeKey={sortKey}
+                direction={sortDir}
+                onSort={handleSort}
+              />
+              <th className="px-4 py-3 text-xs font-medium uppercase tracking-[0.06em] text-text-muted">
+                Ubicación
+              </th>
               <th className="px-4 py-3"></th>
             </tr>
           </thead>
           <tbody>
-            {puntosVenta.map((pv) => (
+            {visiblePuntosVenta.map((pv) => (
               <tr
                 key={pv.id}
                 className="border-b border-border-subtle last:border-0"
@@ -103,13 +214,15 @@ export function PuntosVentaClient({
                 </td>
               </tr>
             ))}
-            {puntosVenta.length === 0 ? (
+            {visiblePuntosVenta.length === 0 ? (
               <tr>
                 <td
                   colSpan={5}
                   className="px-4 py-8 text-center text-text-muted"
                 >
-                  No hay puntos de venta cargados todavía.
+                  {puntosVenta.length === 0
+                    ? "No hay puntos de venta cargados todavía."
+                    : "Ningún punto de venta coincide con la búsqueda."}
                 </td>
               </tr>
             ) : null}

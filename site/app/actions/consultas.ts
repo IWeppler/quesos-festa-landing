@@ -5,7 +5,7 @@ import { friendlyError } from "@/lib/errors";
 import { getResendClient } from "@/lib/resend";
 
 export type ConsultaFormState =
-  | { error?: string; success?: boolean }
+  | { error?: string; success?: boolean; emailSent?: boolean }
   | undefined;
 
 const TIPOS_COMERCIO = [
@@ -64,17 +64,17 @@ function parseConsultaForm(formData: FormData): ParsedConsulta {
   };
 }
 
-async function notifyConsulta(data: ConsultaData) {
+async function notifyConsulta(data: ConsultaData): Promise<boolean> {
   const resend = getResendClient();
   if (!resend) {
     console.error(
       "RESEND_API_KEY no configurada: no se envió la notificación de consulta.",
     );
-    return;
+    return false;
   }
 
   try {
-    await resend.emails.send({
+    const { error } = await resend.emails.send({
       from: NOTIFY_FROM,
       to: NOTIFY_TO,
       replyTo: data.email,
@@ -88,8 +88,14 @@ async function notifyConsulta(data: ConsultaData) {
         `Mensaje: ${data.mensaje ?? "(sin mensaje)"}`,
       ].join("\n"),
     });
+    if (error) {
+      console.error("Error enviando notificación de consulta por email:", error);
+      return false;
+    }
+    return true;
   } catch (err) {
     console.error("Error enviando notificación de consulta por email:", err);
+    return false;
   }
 }
 
@@ -110,7 +116,7 @@ export async function createConsulta(
     return { error: friendlyError(error) };
   }
 
-  await notifyConsulta(parsed.data);
+  const emailSent = await notifyConsulta(parsed.data);
 
-  return { success: true };
+  return { success: true, emailSent };
 }

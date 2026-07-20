@@ -23,6 +23,14 @@ export function ConsultaMayoristaForm() {
         className="rounded-lg border border-white/25 bg-white/10 px-5 py-4 font-sans text-sm leading-relaxed text-white"
       >
         Recibimos tu consulta, te contactamos a la brevedad.
+        {state.emailSent ? (
+          <>
+            {" "}
+            <span className="text-white/80">
+              Le avisamos por email a nuestro equipo de ventas.
+            </span>
+          </>
+        ) : null}
       </p>
     );
   }

@@ -18,8 +18,12 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Instalar dependencias
+        working-directory: ./site
+        run: pnpm install
+
       - name: Ejecutar script de Ping
         env:
           NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.NEXT_PUBLIC_SUPABASE_URL }}
           NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: ${{ secrets.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY }}
-        run: node keep-alive.js
+        run: node site/scripts/keep-alive.js

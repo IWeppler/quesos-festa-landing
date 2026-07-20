@@ -75,7 +75,7 @@ export default async function AdminPage() {
 
   return (
     <div className="flex flex-col gap-6">
-      <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-betwee">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <p className="m-0 font-sans text-xs font-medium uppercase tracking-[0.1em] text-text-muted">
             {formatFechaCompleta(new Date())}
