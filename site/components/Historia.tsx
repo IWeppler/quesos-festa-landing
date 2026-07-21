@@ -56,7 +56,7 @@ export default function Historia() {
           data-reveal
           className="relative mx-auto w-full max-w-105 lg:max-w-none"
         >
-          <div className="aspect-4/5 overflow-hidden rounded-2xl bg-[url('/assets/photos/historia.jpg')] bg-cover bg-center shadow-festa-lg" />
+          <div className="aspect-4/5 overflow-hidden rounded-2xl bg-[url('/assets/photos/historia.webp')] bg-cover bg-center shadow-festa-lg" />
           <div className="absolute -bottom-4 left-4 rounded-[14px] bg-festa-navy-800 px-5 py-4 text-white shadow-festa-md sm:-bottom-5.5 sm:-left-5.5 sm:px-6 sm:py-5">
             <div className="font-display text-[32px] leading-none tracking-[0.02em] sm:text-[40px]">
               35+

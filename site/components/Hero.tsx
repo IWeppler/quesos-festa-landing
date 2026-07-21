@@ -8,7 +8,7 @@ export default function Hero() {
     >
       {/* Mobile: recorte vertical, foco en el detalle del plato */}
       <Image
-        src="/assets/photos/hero.png"
+        src="/assets/photos/hero.webp"
         alt="Selección de quesos frescos artesanales Quesos Festa"
         fill
         priority
@@ -18,7 +18,7 @@ export default function Hero() {
       />
       {/* Desktop: panorámica original */}
       <Image
-        src="/assets/photos/hero.png"
+        src="/assets/photos/hero.webp"
         alt="Selección de quesos frescos artesanales Quesos Festa"
         fill
         priority
@@ -30,7 +30,7 @@ export default function Hero() {
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient( 90deg,  rgba(16, 24, 60, 0.94) 0%,  rgba(16, 24, 60, 0.84) 36%,  rgba(16, 24, 60, 0.42) 68%, rgba(16, 24, 60, 0) 100%)",
+            "linear-gradient(90deg, rgba(32,45,51,.95) 0%, rgba(32,45,51,.84) 34%, rgba(32,45,51,.46) 68%, rgba(32,45,51,0) 100%)",
         }}
       />
       <div className="relative z-10 mx-auto w-full max-w-300 px-6 py-14 md:px-8 md:py-18">
