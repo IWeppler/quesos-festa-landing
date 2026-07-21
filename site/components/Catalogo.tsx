@@ -150,7 +150,7 @@ function ProductRow({ item }: { item: Product }) {
           <h4 className="m-0 font-serif text-xl font-semibold leading-tight text-text-heading sm:text-2xl">
             {item.name}
           </h4>
-          <span className="shrink-0 font-sans text-base font-semibold tracking-[0.04em] text-festa-navy-800">
+          <span className="shrink-0 font-sans text-xs md:text-base font-semibold tracking-[0.04em] text-festa-navy-800">
             {item.pres}
           </span>
         </div>

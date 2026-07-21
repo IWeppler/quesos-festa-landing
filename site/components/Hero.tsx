@@ -8,7 +8,7 @@ export default function Hero() {
     >
       {/* Mobile: recorte vertical, foco en el detalle del plato */}
       <Image
-        src="/assets/photos/banner-mobile.webp"
+        src="/assets/photos/hero.png"
         alt="Selección de quesos frescos artesanales Quesos Festa"
         fill
         priority
@@ -18,7 +18,7 @@ export default function Hero() {
       />
       {/* Desktop: panorámica original */}
       <Image
-        src="/assets/photos/banner.webp"
+        src="/assets/photos/hero.png"
         alt="Selección de quesos frescos artesanales Quesos Festa"
         fill
         priority
@@ -30,7 +30,7 @@ export default function Hero() {
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(88deg, rgba(20,23,63,0.95) 0%, rgba(20,23,63,0.86) 34%, rgba(20,23,63,0.5) 66%, rgba(20,23,63,0.1) 100%)",
+            "linear-gradient( 90deg,  rgba(16, 24, 60, 0.94) 0%,  rgba(16, 24, 60, 0.84) 36%,  rgba(16, 24, 60, 0.42) 68%, rgba(16, 24, 60, 0) 100%)",
         }}
       />
       <div className="relative z-10 mx-auto w-full max-w-300 px-6 py-14 md:px-8 md:py-18">
@@ -41,15 +41,16 @@ export default function Hero() {
             </span>
           </div>
           <div className="font-script text-2xl leading-none text-white/90 sm:text-3xl md:text-[40px]">
-            Disfrutá de
+            Quienes somos
           </div>
           <h1 className="mt-2 mb-4 font-display text-4xl font-normal uppercase leading-[1.08] tracking-[0.02em] text-white sm:text-5xl md:mt-2.5 md:mb-5 md:text-6xl md:leading-[1.04] md:tracking-[0.04em] lg:text-[68px]">
-            El arte del queso fresco
+            Quesos Festa
           </h1>
           <p className="mb-6 max-w-130 font-sans text-base leading-[1.65] text-white/88 md:mb-8 md:text-[19px] md:leading-[1.75]">
-            Más de 35 años elaborando burrata, stracciatella y mascarpone pieza
-            por pieza, como manda la tradición italiana. Quesos frescos
-            artesanales, de familia, enteramente sin TACC.
+            Hace más de 30 años que en Festa elaboramos quesos con calidad y
+            dedicación. Una herencia familiar que ya lleva más de tres décadas.
+            Cada uno de nuestros productos refleja ese compromiso con lo
+            auténtico, lo simple y lo bien hecho.
           </p>
           <div className="flex flex-wrap items-center gap-3">
             <a

@@ -3,21 +3,26 @@ export default function Historia() {
     <section id="historia" className="bg-surface-page py-16 sm:py-20 lg:py-24">
       <div className="mx-auto grid max-w-300 gap-10 px-5 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-16">
         <div data-reveal>
-          <div className="font-script text-3xl leading-none text-festa-green-800">
-            Nuestra historia
-          </div>
-          <div className="mt-1.5 font-sans text-xs font-medium uppercase tracking-[0.32em] text-text-muted">
+          {/* <div className="font-script text-3xl leading-none text-festa-green-800">
+             Historia
+          </div> */}
+          {/* <div className="mt-1.5 font-sans text-xs font-medium uppercase tracking-[0.32em] text-text-muted">
             Familia Festa · Desde 1989
           </div>
-          <div data-rule className="my-4.5 h-0.5 w-12 bg-rule-gold" />
+          <div data-rule className="my-4.5 h-0.5 w-12 bg-rule-gold" /> */}
           <h2 className="m-0 mb-5.5 font-serif text-[32px] font-medium leading-[1.18] text-text-heading sm:text-[38px] lg:text-[42px]">
-            El oficio de hacer queso, de una familia a tu mesa
+            Historia
           </h2>
           <p className="m-0 mb-4.5 font-sans text-base leading-[1.75] text-text-body sm:text-[17px] sm:leading-[1.8]">
-            Empezamos en 1989 con una convicción sencilla: respetar la receta
-            original italiana y no apurar lo que el tiempo hace mejor. Tres
-            décadas y media después, seguimos hilando la mozzarella y armando
-            cada burrata a mano, pieza por pieza.
+            DESDE 1989 nuestros quesos están elaborados de manera fiel a su
+            receta original con base en las mejores técnicas de especialistas
+            europeos. La calidad siempre ha sido prioridad en Festa. Los métodos
+            de producción tradicionales y los controles rigurosos son elementos
+            de confianza para nuestros consumidores. Esto asegura una
+            trazabilidad precisa y el cumplimiento estricto de las normas de
+            calidad desde el aprovisionamiento de las materias primas hasta el
+            producto final. Todos nuestros productos son libres de gluten SIN
+            TACC.
           </p>
           <p className="m-0 mb-7 font-sans text-base leading-[1.75] text-text-body sm:text-[17px] sm:leading-[1.8]">
             Elegimos leche seleccionada, procesos cuidados y nada de atajos. Así
@@ -47,8 +52,11 @@ export default function Historia() {
             </div>
           </div>
         </div>
-        <div data-reveal className="relative mx-auto w-full max-w-105 lg:max-w-none">
-          <div className="aspect-4/5 overflow-hidden rounded-2xl bg-[url('/assets/photos/foto-9.webp')] bg-cover bg-center shadow-festa-lg" />
+        <div
+          data-reveal
+          className="relative mx-auto w-full max-w-105 lg:max-w-none"
+        >
+          <div className="aspect-4/5 overflow-hidden rounded-2xl bg-[url('/assets/photos/historia.jpg')] bg-cover bg-center shadow-festa-lg" />
           <div className="absolute -bottom-4 left-4 rounded-[14px] bg-festa-navy-800 px-5 py-4 text-white shadow-festa-md sm:-bottom-5.5 sm:-left-5.5 sm:px-6 sm:py-5">
             <div className="font-display text-[32px] leading-none tracking-[0.02em] sm:text-[40px]">
               35+
