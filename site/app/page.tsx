@@ -9,6 +9,7 @@ import Contacto from "@/components/Contacto";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
 import { getCategorias, getPuntosVenta } from "@/lib/queries";
+import Premios from "@/components/Premios";
 
 export default async function Home() {
   const [categories, { chains, provinces }] = await Promise.all([
@@ -33,6 +34,7 @@ export default async function Home() {
       <Historia />
       <Novedades />
       <Catalogo categories={categories} />
+      <Premios />
       <DondeEncontrarnos chains={chains} provinces={provinces} />
       <Contacto />
       <Footer />

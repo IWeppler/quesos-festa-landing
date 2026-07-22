@@ -29,7 +29,7 @@ export type Chain = { name: string; image: string };
 export const pillars = [
   { big: "1989", label: "Empresa familiar, tres generaciones de oficio." },
   {
-    big: "A mano",
+    big: "Artesanal",
     label: "Mozzarella hilada y burrata armada pieza por pieza.",
   },
   { big: "Italia", label: "Fieles a la receta original italiana." },

@@ -3,13 +3,6 @@ export default function Historia() {
     <section id="historia" className="bg-surface-page py-16 sm:py-20 lg:py-24">
       <div className="mx-auto grid max-w-300 gap-10 px-5 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-16">
         <div data-reveal>
-          {/* <div className="font-script text-3xl leading-none text-festa-green-800">
-             Historia
-          </div> */}
-          {/* <div className="mt-1.5 font-sans text-xs font-medium uppercase tracking-[0.32em] text-text-muted">
-            Familia Festa · Desde 1989
-          </div>
-          <div data-rule className="my-4.5 h-0.5 w-12 bg-rule-gold" /> */}
           <h2 className="m-0 mb-5.5 font-serif text-[32px] font-medium leading-[1.18] text-text-heading sm:text-[38px] lg:text-[42px]">
             Historia
           </h2>
@@ -21,18 +14,13 @@ export default function Historia() {
             de confianza para nuestros consumidores. Esto asegura una
             trazabilidad precisa y el cumplimiento estricto de las normas de
             calidad desde el aprovisionamiento de las materias primas hasta el
-            producto final. Todos nuestros productos son libres de gluten SIN
-            TACC.
-          </p>
-          <p className="m-0 mb-7 font-sans text-base leading-[1.75] text-text-body sm:text-[17px] sm:leading-[1.8]">
-            Elegimos leche seleccionada, procesos cuidados y nada de atajos. Así
-            nacen quesos frescos de textura sedosa y sabor limpio, toda nuestra
-            línea, además, es enteramente{" "}
+            producto final. Todos nuestros productos son libres de gluten,
             <strong className="font-semibold text-festa-navy-800">
+              {" "}
               sin TACC
             </strong>
-            , libre de gluten.
           </p>
+
           <div className="flex flex-wrap items-center gap-5">
             <span className="inline-flex h-24 w-24 flex-col items-center justify-center rounded-full border-2 border-rule-gold text-center text-festa-navy-800">
               <span className="font-display text-xl leading-none tracking-[0.06em]">

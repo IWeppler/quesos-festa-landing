@@ -91,7 +91,7 @@ export default async function Novedades() {
                     imageFirst ? "lg:order-1" : ""
                   }`}
                 >
-                  <div className="aspect-16/11 bg-festa-navy-800">
+                  <div className="aspect-square bg-festa-navy-800">
                     {producto.photo ? (
                       // eslint-disable-next-line @next/next/no-img-element
                       <img
