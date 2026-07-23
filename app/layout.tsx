@@ -24,9 +24,9 @@ export const metadata: Metadata = {
     description,
     images: [
       {
-        url: "/assets/photos/banner.webp",
-        width: 1672,
-        height: 941,
+        url: "/assets/photos/og-image.jpg",
+        width: 1200,
+        height: 630,
         alt: "Quesos frescos artesanales Quesos Festa",
       },
     ],
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title,
     description,
-    images: ["/assets/photos/banner.webp"],
+    images: ["/assets/photos/og-image.jpg"],
   },
 };
 
