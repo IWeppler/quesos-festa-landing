@@ -9,9 +9,6 @@ export default async function Premios() {
     <section id="premios" className="bg-surface-page border border-t border-border-subtle">
       <div className="mx-auto max-w-200 px-5 pt-24 pb-26 sm:px-8">
         <div data-reveal className="mb-16 text-center">
-          <div className="font-script text-[26px] leading-none text-festa-green-800 sm:text-[30px]">
-            Orgullo de familia
-          </div>
           <span className="mt-2 block font-sans text-[11px] font-medium uppercase tracking-[0.36em] text-text-muted">
             Reconocimientos y premios
           </span>
