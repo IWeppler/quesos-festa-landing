@@ -38,8 +38,10 @@ const contactItems = [
 export default function Contacto() {
   return (
     <section id="contacto" className="bg-festa-green-800 text-white">
-      <div className="mx-auto grid max-w-350 px-5 sm:px-8 lg:grid-cols-2 lg:items-stretch">
-        <div className="flex flex-col justify-center py-16 sm:py-20 lg:py-[92px] lg:pr-14">
+      {/* 1. Mover el padding vertical al grid principal */}
+      <div className="mx-auto grid max-w-350 px-5 py-16 sm:px-8 sm:py-20 lg:grid-cols-2 lg:py-[92px]">
+        {/* Columna Izquierda */}
+        <div className="flex flex-col justify-center lg:pr-14">
           <div
             data-reveal
             className="font-sans text-xs font-medium uppercase tracking-[0.32em] text-white/72"
@@ -104,7 +106,8 @@ export default function Contacto() {
           </div>
         </div>
 
-        <div className="relative min-h-75 sm:min-h-100 lg:min-h-130">
+        {/* 2. Columna Derecha: Imagen contenida con altura alineada al formulario */}
+        <div className="relative mt-8 aspect-[4/5] w-full overflow-hidden rounded-3xl bg-festa-green-900 lg:mt-7 lg:aspect-[3/4] lg:self-end">
           <Image
             src="/assets/photos/foto-4.webp"
             alt="Quesos artesanales Quesos Festa listos para servir"

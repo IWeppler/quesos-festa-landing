@@ -46,6 +46,18 @@ export default async function AdminLayout({ children }: { children: React.ReactN
             >
               Consultas
             </Link>
+            <Link
+              href="/admin/premios"
+              className="font-sans text-sm text-text-body transition-colors duration-150 hover:text-festa-navy-800"
+            >
+              Premios
+            </Link>
+            <Link
+              href="/admin/contenido"
+              className="font-sans text-sm text-text-body transition-colors duration-150 hover:text-festa-navy-800"
+            >
+              Contenido
+            </Link>
           </nav>
         </div>
         <div className="flex items-center gap-4">

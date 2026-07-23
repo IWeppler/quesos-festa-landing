@@ -1,4 +1,8 @@
-export default function Historia() {
+import { getContenidoSitio } from "@/lib/queries";
+
+export default async function Historia() {
+  const { historia } = await getContenidoSitio();
+
   return (
     <section id="historia" className="bg-surface-page py-16 sm:py-20 lg:py-24">
       <div className="mx-auto grid max-w-300 gap-10 px-5 sm:px-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-16">
@@ -31,20 +35,16 @@ export default function Historia() {
                 Libre de gluten
               </span>
             </span>
-            <div className="max-w-65 font-sans text-sm leading-[1.6] text-text-muted">
-              Reconocidos en el{" "}
-              <strong className="font-semibold text-festa-navy-800">
-                4.º Mundial del Queso
-              </strong>
-              , Brasil 2026.
-            </div>
           </div>
         </div>
         <div
           data-reveal
           className="relative mx-auto w-full max-w-105 lg:max-w-none"
         >
-          <div className="aspect-4/5 overflow-hidden rounded-2xl bg-[url('/assets/photos/historia.webp')] bg-cover bg-center shadow-festa-lg" />
+          <div
+            className="aspect-4/5 overflow-hidden rounded-2xl bg-cover bg-center shadow-festa-lg"
+            style={{ backgroundImage: `url('${historia}')` }}
+          />
           <div className="absolute -bottom-4 left-4 rounded-[14px] bg-festa-navy-800 px-5 py-4 text-white shadow-festa-md sm:-bottom-5.5 sm:-left-5.5 sm:px-6 sm:py-5">
             <div className="font-display text-[32px] leading-none tracking-[0.02em] sm:text-[40px]">
               35+

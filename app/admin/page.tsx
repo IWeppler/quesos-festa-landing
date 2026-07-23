@@ -107,6 +107,12 @@ export default async function AdminPage() {
           icon={<InboxIcon />}
           alert={pendientes > 0}
         />
+        <ShortcutCard
+          href="/admin/contenido"
+          label="Contenido del sitio"
+          description="Editar imágenes"
+          icon={<ImageIcon />}
+        />
       </div>
 
       <div className="grid gap-4 lg:grid-cols-2">
@@ -261,6 +267,37 @@ function StatCard({
   );
 }
 
+function ShortcutCard({
+  href,
+  label,
+  description,
+  icon,
+}: {
+  href: string;
+  label: string;
+  description: string;
+  icon: React.ReactNode;
+}) {
+  return (
+    <Link
+      href={href}
+      className="flex-1 rounded-xl border border-border-subtle bg-surface-card p-6 transition-colors duration-150 hover:bg-surface-sunken"
+    >
+      <div className="flex items-center gap-3.5">
+        <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-surface-sunken text-festa-navy-800">
+          {icon}
+        </span>
+        <div>
+          <div className="font-sans text-sm text-text-muted">{label}</div>
+          <div className="mt-0.5 font-sans text-sm font-medium text-festa-navy-800">
+            {description} →
+          </div>
+        </div>
+      </div>
+    </Link>
+  );
+}
+
 function iconProps(size: number) {
   return {
     width: size,
@@ -307,6 +344,16 @@ function MailIcon({ size = 20 }: { size?: number }) {
     <svg {...iconProps(size)}>
       <rect x="2" y="4" width="20" height="16" rx="2" />
       <path d="m22 7-10 6L2 7" />
+    </svg>
+  );
+}
+
+function ImageIcon({ size = 20 }: { size?: number }) {
+  return (
+    <svg {...iconProps(size)}>
+      <rect x="3" y="3" width="18" height="18" rx="2" />
+      <circle cx="8.5" cy="8.5" r="1.5" />
+      <path d="m21 15-5-5L5 21" />
     </svg>
   );
 }

@@ -1,30 +1,28 @@
-import Image from "next/image";
+import { getContenidoSitio } from "@/lib/queries";
 
-export default function Hero() {
+export default async function Hero() {
+  const { heroDesktop, heroMobile } = await getContenidoSitio();
+
   return (
     <section
       id="top"
       className="relative flex min-h-140 md:min-h-160 items-center overflow-hidden"
     >
       {/* Mobile: recorte vertical, foco en el detalle del plato */}
-      <Image
-        src="/assets/photos/hero.webp"
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={heroMobile}
         alt="Selección de quesos frescos artesanales Quesos Festa"
-        fill
-        priority
-        sizes="(max-width: 767px) 100vw, 0vw"
-        quality={85}
-        className="object-cover object-[65%_center] md:hidden"
+        fetchPriority="high"
+        className="absolute inset-0 h-full w-full object-cover object-[65%_center] md:hidden"
       />
       {/* Desktop: panorámica original */}
-      <Image
-        src="/assets/photos/hero.webp"
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src={heroDesktop}
         alt="Selección de quesos frescos artesanales Quesos Festa"
-        fill
-        priority
-        sizes="(min-width: 768px) 100vw, 0vw"
-        quality={85}
-        className="hidden object-cover md:block"
+        fetchPriority="high"
+        className="absolute inset-0 hidden h-full w-full object-cover md:block"
       />
       <div
         className="absolute inset-0"

@@ -92,6 +92,53 @@ export async function getAdminPuntoVenta(id: number): Promise<AdminPuntoVenta | 
   return data;
 }
 
+export type ContenidoSitioClave = "hero_desktop" | "hero_mobile" | "historia";
+
+export type AdminContenidoSitio = {
+  clave: ContenidoSitioClave;
+  imagen_url: string | null;
+};
+
+export async function listContenidoSitio(): Promise<AdminContenidoSitio[]> {
+  const { data, error } = await supabase
+    .from("contenido_sitio")
+    .select("clave, imagen_url")
+    .returns<AdminContenidoSitio[]>();
+  if (error || !data) return [];
+  return data;
+}
+
+export type AdminPremio = {
+  id: number;
+  anio: number;
+  titulo: string;
+  descripcion: string | null;
+  orden: number;
+  created_at: string;
+};
+
+export async function listAdminPremios(): Promise<AdminPremio[]> {
+  const { data, error } = await supabase
+    .from("premios")
+    .select("id, anio, titulo, descripcion, orden, created_at")
+    .order("anio", { ascending: false })
+    .order("orden")
+    .returns<AdminPremio[]>();
+  if (error || !data) return [];
+  return data;
+}
+
+export async function getAdminPremio(id: number): Promise<AdminPremio | null> {
+  const { data, error } = await supabase
+    .from("premios")
+    .select("id, anio, titulo, descripcion, orden, created_at")
+    .eq("id", id)
+    .returns<AdminPremio[]>()
+    .single();
+  if (error || !data) return null;
+  return data;
+}
+
 export type AdminConsulta = {
   id: number;
   nombre: string;

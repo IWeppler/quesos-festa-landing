@@ -110,6 +110,74 @@ export async function getProductosDestacados(): Promise<ProductoDestacado[]> {
   }));
 }
 
+export type ContenidoSitio = {
+  heroDesktop: string;
+  heroMobile: string;
+  historia: string;
+};
+
+const CONTENIDO_SITIO_FALLBACK = {
+  hero_desktop: "/assets/photos/hero.webp",
+  hero_mobile: "/assets/photos/hero-mobile.jpg",
+  historia: "/assets/photos/historia.webp",
+} as const;
+
+type ContenidoSitioRow = { clave: string; imagen_url: string | null };
+
+/**
+ * Fondo del hero y foto de Historia son editables desde el admin, pero si
+ * todavía no se subió ninguna imagen (o falla la consulta) usamos el asset
+ * estático original para que el sitio nunca se rompa.
+ */
+export async function getContenidoSitio(): Promise<ContenidoSitio> {
+  const { data } = await supabase
+    .from("contenido_sitio")
+    .select("clave, imagen_url")
+    .returns<ContenidoSitioRow[]>();
+
+  const byClave = new Map((data ?? []).map((r) => [r.clave, r.imagen_url]));
+
+  function resolve(clave: keyof typeof CONTENIDO_SITIO_FALLBACK): string {
+    const path = byClave.get(clave) ?? null;
+    return (path && publicUrl(path)) || CONTENIDO_SITIO_FALLBACK[clave];
+  }
+
+  return {
+    heroDesktop: resolve("hero_desktop"),
+    heroMobile: resolve("hero_mobile"),
+    historia: resolve("historia"),
+  };
+}
+
+export type Premio = {
+  anio: number;
+  titulo: string;
+  descripcion: string;
+};
+
+type PremioRow = {
+  anio: number;
+  titulo: string;
+  descripcion: string | null;
+};
+
+export async function getPremios(): Promise<Premio[]> {
+  const { data, error } = await supabase
+    .from("premios")
+    .select("anio, titulo, descripcion")
+    .order("anio", { ascending: false })
+    .order("orden")
+    .returns<PremioRow[]>();
+
+  if (error || !data) return [];
+
+  return data.map((p): Premio => ({
+    anio: p.anio,
+    titulo: p.titulo,
+    descripcion: p.descripcion ?? "",
+  }));
+}
+
 type PuntoVentaRow = {
   nombre_comercio: string;
   tipo: "cadena" | "barrio";
